@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.0
+apiversion: 2
+architectures: armv7 arm64 i386 x86_64
+description: Photo Editor Adobe
+author: Your Name
+license: Specify your license
+copyright: Copyright (c) 2015 by Your Company
+
+# these should not be edited
+name: Photo Editor Adobe
+moduleid: com.dcode.photoeditor.adobe
+guid: 5191636b-cc39-4b9d-b0ec-771f9f70b2cc
+platform: iphone
+minsdk: 3.5.0.GA
