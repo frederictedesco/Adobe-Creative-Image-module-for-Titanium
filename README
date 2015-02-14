@@ -18,8 +18,9 @@ GET STARTED
 1. Edit manifest with the appropriate details about your module.
 2. Edit LICENSE to add your license details.
 3. Place any assets (such as PNG files) that are required anywhere in the module folder.
-4. Edit the timodule.json and configure desired settings.
-5. Code and build.
+4. Add the AdobeCreativeSDKFoundation.framework and AdobeCreativeSDKImage.framework downloaded from the https://creativesdk.adobe.com web site in the iphone Directory
+5. Edit the timodule.json and configure desired settings.
+6. Code and build.
 
 
 DOCUMENTATION FOR YOUR MODULE
