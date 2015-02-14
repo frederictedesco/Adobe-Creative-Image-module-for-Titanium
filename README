@@ -79,17 +79,67 @@ and assets into the application.
 
 USING YOUR MODULE IN CODE
 -------------------------
+In your titanium app you have to add the AdobeCreativeSDKFoundation.framework, AdobeCreativeSDKFoundationResources.bundle, AdobeCreativeSDKImage.framework, AdobeCreativeSDKImageResources.bundle in the app/assets directory
+
+You have to create an account on https://creativesdk.adobe.com and generate au App Token and App Secret (Warning the Secret is showed only one time at the creation of the app)
+
 
 To use your module in code, you will need to require it.
 
 For example,
-
 	var my_module = require('com.dcode.photoeditor.adobe');
-	my_module.foo();
+
+You need an image of type Ti.Media.MEDIA_TYPE_PHOTO
+
+You need to setup the tools you want to use in an array. You'll find here after the tools you can use:
+
+/* Enhance */
+/* Effects */
+/* Stickers */
+/* Orientation */
+/* Crop */
+/* Color */
+/* Lighting */
+/* Sharpness */
+/* Draw */
+/* Text */
+/* Redeye */
+/* Whiten */
+/* Blemish */
+/* Blur */
+/* Meme */
+/* Frames */
+/* TiltShift */
+/* ColorSplash */
+/* Overlay */
+/* Vignette */
+
+And here after an example on how to create the array tools. You just have to add "kAF" before the name of the tool.
+
+    var tools = ['kAFEffects', 'kAFOrientation', 'kAFLighting', 'kAFBlur', 'kAFSharpness'];
+
+Finally you can call the Photo Editor like this:
+
+    my_module.newImageEditor({apikey:'your-app-token', secret: 'your-app-secret', image: my_image, tools: tools}))
+
+Don't forget to create the two event listener that manage the callbacks of this function
+
+
+    my_module.addEventListener('avEditorFinished', function(ev){
+            /* Your code to manage the edited image */
+            Ti.API.log('avEditorFinished');
+        });
+
+    my_module.addEventListener('avEditorCancel', function(ev){
+            /* Your code to manage the edited but not modified image */
+            Ti.API.log('avEditorCancel');
+        });
 
 
 TESTING YOUR MODULE
 -------------------
+
+To be done !!!!
 
 To test with the script, execute:
 
