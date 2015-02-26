@@ -26,6 +26,18 @@
 		24DD6CFA1134B3F500162E58 /* ComDcodePhotoeditorAdobeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* ComDcodePhotoeditorAdobeModule.m */; };
 		24DE9E1111C5FE74003F90F6 /* ComDcodePhotoeditorAdobeModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* ComDcodePhotoeditorAdobeModuleAssets.h */; };
 		24DE9E1211C5FE74003F90F6 /* ComDcodePhotoeditorAdobeModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* ComDcodePhotoeditorAdobeModuleAssets.m */; };
+		49FC43341A9E1E2000D4A636 /* AdobeCreativeSDKFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43321A9E1E2000D4A636 /* AdobeCreativeSDKFoundation.framework */; };
+		49FC43351A9E1E2000D4A636 /* AdobeCreativeSDKImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43331A9E1E2000D4A636 /* AdobeCreativeSDKImage.framework */; };
+		49FC43391A9E8FCB00D4A636 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43361A9E8FCB00D4A636 /* Accelerate.framework */; };
+		49FC433A1A9E8FCB00D4A636 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43371A9E8FCB00D4A636 /* CoreData.framework */; };
+		49FC433B1A9E8FCB00D4A636 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43381A9E8FCB00D4A636 /* libz.dylib */; };
+		49FC433D1A9E906F00D4A636 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC433C1A9E906F00D4A636 /* libsqlite3.0.dylib */; };
+		49FC433F1A9E908C00D4A636 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC433E1A9E908C00D4A636 /* MessageUI.framework */; };
+		49FC43411A9E90A400D4A636 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43401A9E90A400D4A636 /* QuartzCore.framework */; };
+		49FC43431A9E90B100D4A636 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43421A9E90B100D4A636 /* libc++.dylib */; };
+		49FC43451A9E90D400D4A636 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43441A9E90D400D4A636 /* OpenGLES.framework */; };
+		49FC43471A9E911D00D4A636 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43461A9E911D00D4A636 /* StoreKit.framework */; };
+		49FC43491A9E912900D4A636 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43481A9E912900D4A636 /* MobileCoreServices.framework */; };
 		AA747D9F0F9514B9006C5449 /* ComDcodePhotoeditorAdobe_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* ComDcodePhotoeditorAdobe_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -46,6 +58,18 @@
 		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
 		24DE9E0F11C5FE74003F90F6 /* ComDcodePhotoeditorAdobeModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComDcodePhotoeditorAdobeModuleAssets.h; path = Classes/ComDcodePhotoeditorAdobeModuleAssets.h; sourceTree = "<group>"; };
 		24DE9E1011C5FE74003F90F6 /* ComDcodePhotoeditorAdobeModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComDcodePhotoeditorAdobeModuleAssets.m; path = Classes/ComDcodePhotoeditorAdobeModuleAssets.m; sourceTree = "<group>"; };
+		49FC43321A9E1E2000D4A636 /* AdobeCreativeSDKFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdobeCreativeSDKFoundation.framework; path = platform/AdobeCreativeSDKFoundation.framework; sourceTree = "<group>"; };
+		49FC43331A9E1E2000D4A636 /* AdobeCreativeSDKImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdobeCreativeSDKImage.framework; path = platform/AdobeCreativeSDKImage.framework; sourceTree = "<group>"; };
+		49FC43361A9E8FCB00D4A636 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		49FC43371A9E8FCB00D4A636 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		49FC43381A9E8FCB00D4A636 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		49FC433C1A9E906F00D4A636 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		49FC433E1A9E908C00D4A636 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		49FC43401A9E90A400D4A636 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		49FC43421A9E90B100D4A636 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		49FC43441A9E90D400D4A636 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		49FC43461A9E911D00D4A636 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		49FC43481A9E912900D4A636 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		AA747D9E0F9514B9006C5449 /* ComDcodePhotoeditorAdobe_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComDcodePhotoeditorAdobe_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libComDcodePhotoeditorAdobe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libComDcodePhotoeditorAdobe.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,7 +80,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49FC43491A9E912900D4A636 /* MobileCoreServices.framework in Frameworks */,
+				49FC43471A9E911D00D4A636 /* StoreKit.framework in Frameworks */,
+				49FC43451A9E90D400D4A636 /* OpenGLES.framework in Frameworks */,
+				49FC43431A9E90B100D4A636 /* libc++.dylib in Frameworks */,
+				49FC43411A9E90A400D4A636 /* QuartzCore.framework in Frameworks */,
+				49FC433F1A9E908C00D4A636 /* MessageUI.framework in Frameworks */,
+				49FC433D1A9E906F00D4A636 /* libsqlite3.0.dylib in Frameworks */,
+				49FC43391A9E8FCB00D4A636 /* Accelerate.framework in Frameworks */,
+				49FC433A1A9E8FCB00D4A636 /* CoreData.framework in Frameworks */,
+				49FC433B1A9E8FCB00D4A636 /* libz.dylib in Frameworks */,
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+				49FC43351A9E1E2000D4A636 /* AdobeCreativeSDKImage.framework in Frameworks */,
+				49FC43341A9E1E2000D4A636 /* AdobeCreativeSDKFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +121,18 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49FC43481A9E912900D4A636 /* MobileCoreServices.framework */,
+				49FC43461A9E911D00D4A636 /* StoreKit.framework */,
+				49FC43441A9E90D400D4A636 /* OpenGLES.framework */,
+				49FC43421A9E90B100D4A636 /* libc++.dylib */,
+				49FC43401A9E90A400D4A636 /* QuartzCore.framework */,
+				49FC433E1A9E908C00D4A636 /* MessageUI.framework */,
+				49FC433C1A9E906F00D4A636 /* libsqlite3.0.dylib */,
+				49FC43361A9E8FCB00D4A636 /* Accelerate.framework */,
+				49FC43371A9E8FCB00D4A636 /* CoreData.framework */,
+				49FC43381A9E8FCB00D4A636 /* libz.dylib */,
+				49FC43321A9E1E2000D4A636 /* AdobeCreativeSDKFoundation.framework */,
+				49FC43331A9E1E2000D4A636 /* AdobeCreativeSDKImage.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -218,10 +266,8 @@
 				DSTROOT = /tmp/ComDcodePhotoeditorAdobe.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/frederictedesco/Documents/Titanium_Studio_Workspace/Photo,
-					Editor,
-					Adobe/assets,
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/platform",
 				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -263,10 +309,8 @@
 				DSTROOT = /tmp/ComDcodePhotoeditorAdobe.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/frederictedesco/Documents/Titanium_Studio_Workspace/Photo,
-					Editor,
-					Adobe/assets,
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/platform",
 				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_MODEL_TUNING = G5;

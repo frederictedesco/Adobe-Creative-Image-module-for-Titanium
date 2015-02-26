@@ -24,5 +24,11 @@
 //
 //
 // IMPORTANT NOTE: always use $(inherited) in your overrides
-// 
-OTHER_LDFLAGS=$(inherited) -F"/Users/frederictedesco/Documents/Titanium_Studio_Workspace/Photo\ Editor\ Adobe/iphone" -framework AdobeCreativeSDKFoundation -framework AdobeCreativeSDKImage
+//
+MODULEID = com.dcode.photoeditor.adobe
+VERSION = 1.0.0
+PROJECT_MODULE_PLATFORM_PATH = $(SRCROOT)/../../modules/iphone/$(MODULEID)/$(VERSION)/platform
+SYSTEM_MODULE_PLATFORM_PATH = /Library/Application\ Support/Titanium/modules/iphone/$(MODULEID)/$(VERSION)/platform
+USER_MODULE_PLATFORM_PATH = ~/Library/Application\ Support/Titanium/modules/iphone/$(MODULEID)/$(VERSION)/platform
+FRAMEWORK_SEARCH_PATHS=$(inherited) $(PROJECT_MODULE_PLATFORM_PATH) $(SYSTEM_MODULE_PLATFORM_PATH) $(USER_MODULE_PLATFORM_PATH) 
+OTHER_LDFLAGS=$(inherited) -ObjC -all_load -framework AdobeCreativeSDKFoundation -framework AdobeCreativeSDKImage
