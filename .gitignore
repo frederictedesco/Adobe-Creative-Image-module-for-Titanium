@@ -112,3 +112,4 @@ crashlytics-build.properties
 
 ## Titanium Module
 iphone/build/
+iphone/platform/Adobe*
