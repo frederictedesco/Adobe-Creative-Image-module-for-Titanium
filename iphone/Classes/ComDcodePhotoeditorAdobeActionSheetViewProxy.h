@@ -10,8 +10,7 @@
 #import "TiViewProxy.h"
 
 @interface ComDcodePhotoeditorAdobeActionSheetViewProxy : TiViewProxy
-{
-    
-}
+
+- (void)showActionSheet:(id)args;
 
 @end

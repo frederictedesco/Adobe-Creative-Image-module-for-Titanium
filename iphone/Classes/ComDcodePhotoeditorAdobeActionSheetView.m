@@ -23,8 +23,6 @@
 
 @implementation ComDcodePhotoeditorAdobeActionSheetView
 
-@synthesize actionSheet;
-
 - (void)initializeState
 {
     // Creates and keeps a reference to the view upon initialization
@@ -37,7 +35,7 @@
 -(void)dealloc
 {
     // Deallocates the view
-    RELEASE_TO_NIL(actionSheet);
+    RELEASE_TO_NIL(_actionSheet);
     RELEASE_TO_NIL(_photoPickerController);
     RELEASE_TO_NIL(_adobePhotoEditorController);
     [super dealloc];
@@ -46,17 +44,18 @@
 -(void)frameSizeChanged:(CGRect)frame bounds:(CGRect)bounds
 {
     // Sets the size and position of the view
-    [TiUtils setView:actionSheet positionRect:bounds];
+    [TiUtils setView:_actionSheet positionRect:bounds];
 }
 
 -(void)setColor_:(id)color
 {
     // Assigns the view's background color
-    actionSheet.backgroundColor = [[TiUtils colorValue:color] _color];
+    _actionSheet.backgroundColor = [[TiUtils colorValue:color] _color];
 }
 
-- (void)show:(id)arg {
-    [actionSheet showInView:[[TiApp app] topMostView]];
+- (void)showActionSheet:(id)args {
+    NSLog(@"Show actionView");
+    [_actionSheet showInView:[[TiApp app] topMostView]];
 }
 
 /*
@@ -70,12 +69,16 @@
 #pragma mark - ActionSheet Delegate
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSLog(@"[INFO] ButtonIndex : %i",buttonIndex);
+
     if (buttonIndex == 0) {
-        NSLog(@"Take a photo");
+        NSLog(@"[INFO] Take a photo");
         [_photoPickerController startCameraController];
-    } else {
-        NSLog(@"Choose a photo from my library");
+    } else if (buttonIndex == 1) {
+        NSLog(@"[INFO] Choose a photo from my library");
         [_photoPickerController startPhotoPickerViewController];
+    } else {
+        NSLog(@"[INFO] Cancel");
     }
 }
 

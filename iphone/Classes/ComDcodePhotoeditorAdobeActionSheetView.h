@@ -10,6 +10,6 @@
 
 @interface ComDcodePhotoeditorAdobeActionSheetView : TiUIView <UIActionSheetDelegate>
 
-- (void)show:(id)arg;
+- (void)showActionSheet:(id)args;
 
 @end
