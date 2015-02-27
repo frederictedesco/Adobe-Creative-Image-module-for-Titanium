@@ -11,6 +11,7 @@
 #import "TiUtils.h"
 #import "TiApp.h"
 #import <AdobeCreativeSDKFoundation/AdobeCreativeSDKFoundation.h>
+#import "ComDcodePhotoeditorAdobeActionSheetView.h"
 
 static NSString * const kAFAviaryAPIKey = @"3d8601432f3e4c65821c610c134e1457";
 static NSString * const kAFAviarySecret = @"b9a7831e-340c-471b-82f7-2dbe08667c67";
@@ -41,6 +42,11 @@ static NSString * const kAFAviarySecret = @"b9a7831e-340c-471b-82f7-2dbe08667c67
 	[super startup];
 
 	NSLog(@"[INFO] %@ loaded",self);
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [[AdobeUXAuthManager sharedManager] setAuthenticationParametersWithClientID:kAFAviaryAPIKey withClientSecret:kAFAviarySecret];
+    });
 }
 
 -(void)shutdown:(id)sender
@@ -92,7 +98,7 @@ static NSString * const kAFAviarySecret = @"b9a7831e-340c-471b-82f7-2dbe08667c67
 }
 
 
--(NSDictionary *)convertResultDic:(UIImage *)result
++ (NSDictionary *)convertResultDic:(UIImage *)result
 {
     TiBlob *blob = [[[TiBlob alloc]initWithImage:result]autorelease];
     NSDictionary *obj = [NSDictionary dictionaryWithObjectsAndKeys:blob,@"image",nil];
@@ -149,6 +155,20 @@ static NSString * const kAFAviarySecret = @"b9a7831e-340c-471b-82f7-2dbe08667c67
 
 #pragma Public APIs
 
+-(void)newImageEditor
+{
+    ENSURE_UI_THREAD_0_ARGS
+    
+    NSLog(@"[INFO] newImageEditor Li",self);
+    
+    // Set Supported Orientations
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        NSArray * supportedOrientations = @[@(UIInterfaceOrientationPortrait), @(UIInterfaceOrientationPortraitUpsideDown), @(UIInterfaceOrientationLandscapeLeft), @(UIInterfaceOrientationLandscapeRight)];
+        [AFPhotoEditorCustomization setSupportedIpadOrientations:supportedOrientations];
+    }
+    
+    [[[[ComDcodePhotoeditorAdobeActionSheetView alloc] init] autorelease] show:nil];
+}
 
 -(void)newImageEditor:(id)params
 {
@@ -156,12 +176,6 @@ static NSString * const kAFAviarySecret = @"b9a7831e-340c-471b-82f7-2dbe08667c67
     ENSURE_SINGLE_ARG(params, NSDictionary);
     
     NSLog(@"[INFO] Test Li",self);
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [[AdobeUXAuthManager sharedManager] setAuthenticationParametersWithClientID:[params objectForKey:@"apikey"] withClientSecret:[params objectForKey:@"secret"]];
-        
-    });
     
     // Set Supported Orientations
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
@@ -181,7 +195,7 @@ static NSString * const kAFAviarySecret = @"b9a7831e-340c-471b-82f7-2dbe08667c67
 -(void)photoEditor:(AFPhotoEditorController *)editor finishedWithImage:(UIImage *)image
 {
     NSLog(@"avEditorFinished XCODE");
-    [self fireEvent:@"avEditorFinished" withObject:[self convertResultDic:image]];
+    [self fireEvent:@"avEditorFinished" withObject:[ComDcodePhotoeditorAdobeModule convertResultDic:image]];
     
     if([view_parentViewController(editor) respondsToSelector:@selector(dismissViewControllerAnimated:completion:)])
         [editor.presentingViewController dismissViewControllerAnimated:(NO) completion:nil];

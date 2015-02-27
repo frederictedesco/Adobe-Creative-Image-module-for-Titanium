@@ -13,4 +13,6 @@
     AdobeUXImageEditorViewController *editorController;
 }
 
++ (NSDictionary *)convertResultDic:(UIImage *)result;
+
 @end

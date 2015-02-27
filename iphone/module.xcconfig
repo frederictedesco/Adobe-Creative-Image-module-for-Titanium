@@ -31,4 +31,4 @@ PROJECT_MODULE_PLATFORM_PATH = $(SRCROOT)/../../modules/iphone/$(MODULEID)/$(VER
 SYSTEM_MODULE_PLATFORM_PATH = /Library/Application\ Support/Titanium/modules/iphone/$(MODULEID)/$(VERSION)/platform
 USER_MODULE_PLATFORM_PATH = ~/Library/Application\ Support/Titanium/modules/iphone/$(MODULEID)/$(VERSION)/platform
 FRAMEWORK_SEARCH_PATHS=$(inherited) $(PROJECT_MODULE_PLATFORM_PATH) $(SYSTEM_MODULE_PLATFORM_PATH) $(USER_MODULE_PLATFORM_PATH) 
-OTHER_LDFLAGS=$(inherited) -ObjC -all_load -framework AdobeCreativeSDKFoundation -framework AdobeCreativeSDKImage
+OTHER_LDFLAGS=$(inherited) -ObjC -all_load /usr/lib/libsqlite3.0.dylib /usr/lib/libz.1.2.5.dylib /usr/lib/libc++.dylib -framework AdobeCreativeSDKFoundation -framework AdobeCreativeSDKImage

@@ -26,15 +26,20 @@
 		24DD6CFA1134B3F500162E58 /* ComDcodePhotoeditorAdobeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* ComDcodePhotoeditorAdobeModule.m */; };
 		24DE9E1111C5FE74003F90F6 /* ComDcodePhotoeditorAdobeModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* ComDcodePhotoeditorAdobeModuleAssets.h */; };
 		24DE9E1211C5FE74003F90F6 /* ComDcodePhotoeditorAdobeModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* ComDcodePhotoeditorAdobeModuleAssets.m */; };
+		499360311A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4993602D1A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetView.m */; };
+		499360321A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4993602E1A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetView.h */; };
+		499360331A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetViewProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4993602F1A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetViewProxy.h */; };
+		499360341A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetViewProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 499360301A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetViewProxy.m */; };
+		499360371A9FB02700DCFB14 /* AdobePhotoEditorController.h in Headers */ = {isa = PBXBuildFile; fileRef = 499360351A9FB02700DCFB14 /* AdobePhotoEditorController.h */; };
+		499360381A9FB02700DCFB14 /* AdobePhotoEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499360361A9FB02700DCFB14 /* AdobePhotoEditorController.m */; };
+		4993603B1A9FB5FB00DCFB14 /* PhotoPickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 499360391A9FB5FB00DCFB14 /* PhotoPickerController.h */; };
+		4993603C1A9FB5FB00DCFB14 /* PhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4993603A1A9FB5FB00DCFB14 /* PhotoPickerController.m */; };
 		49FC43341A9E1E2000D4A636 /* AdobeCreativeSDKFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43321A9E1E2000D4A636 /* AdobeCreativeSDKFoundation.framework */; };
 		49FC43351A9E1E2000D4A636 /* AdobeCreativeSDKImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43331A9E1E2000D4A636 /* AdobeCreativeSDKImage.framework */; };
 		49FC43391A9E8FCB00D4A636 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43361A9E8FCB00D4A636 /* Accelerate.framework */; };
 		49FC433A1A9E8FCB00D4A636 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43371A9E8FCB00D4A636 /* CoreData.framework */; };
-		49FC433B1A9E8FCB00D4A636 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43381A9E8FCB00D4A636 /* libz.dylib */; };
-		49FC433D1A9E906F00D4A636 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC433C1A9E906F00D4A636 /* libsqlite3.0.dylib */; };
 		49FC433F1A9E908C00D4A636 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC433E1A9E908C00D4A636 /* MessageUI.framework */; };
 		49FC43411A9E90A400D4A636 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43401A9E90A400D4A636 /* QuartzCore.framework */; };
-		49FC43431A9E90B100D4A636 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43421A9E90B100D4A636 /* libc++.dylib */; };
 		49FC43451A9E90D400D4A636 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43441A9E90D400D4A636 /* OpenGLES.framework */; };
 		49FC43471A9E911D00D4A636 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43461A9E911D00D4A636 /* StoreKit.framework */; };
 		49FC43491A9E912900D4A636 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43481A9E912900D4A636 /* MobileCoreServices.framework */; };
@@ -58,15 +63,20 @@
 		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
 		24DE9E0F11C5FE74003F90F6 /* ComDcodePhotoeditorAdobeModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComDcodePhotoeditorAdobeModuleAssets.h; path = Classes/ComDcodePhotoeditorAdobeModuleAssets.h; sourceTree = "<group>"; };
 		24DE9E1011C5FE74003F90F6 /* ComDcodePhotoeditorAdobeModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComDcodePhotoeditorAdobeModuleAssets.m; path = Classes/ComDcodePhotoeditorAdobeModuleAssets.m; sourceTree = "<group>"; };
+		4993602D1A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComDcodePhotoeditorAdobeActionSheetView.m; path = Classes/ComDcodePhotoeditorAdobeActionSheetView.m; sourceTree = "<group>"; };
+		4993602E1A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComDcodePhotoeditorAdobeActionSheetView.h; path = Classes/ComDcodePhotoeditorAdobeActionSheetView.h; sourceTree = "<group>"; };
+		4993602F1A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetViewProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComDcodePhotoeditorAdobeActionSheetViewProxy.h; path = Classes/ComDcodePhotoeditorAdobeActionSheetViewProxy.h; sourceTree = "<group>"; };
+		499360301A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetViewProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComDcodePhotoeditorAdobeActionSheetViewProxy.m; path = Classes/ComDcodePhotoeditorAdobeActionSheetViewProxy.m; sourceTree = "<group>"; };
+		499360351A9FB02700DCFB14 /* AdobePhotoEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdobePhotoEditorController.h; sourceTree = "<group>"; };
+		499360361A9FB02700DCFB14 /* AdobePhotoEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdobePhotoEditorController.m; sourceTree = "<group>"; };
+		499360391A9FB5FB00DCFB14 /* PhotoPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoPickerController.h; path = Classes/PhotoPickerController.h; sourceTree = "<group>"; };
+		4993603A1A9FB5FB00DCFB14 /* PhotoPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoPickerController.m; path = Classes/PhotoPickerController.m; sourceTree = "<group>"; };
 		49FC43321A9E1E2000D4A636 /* AdobeCreativeSDKFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdobeCreativeSDKFoundation.framework; path = platform/AdobeCreativeSDKFoundation.framework; sourceTree = "<group>"; };
 		49FC43331A9E1E2000D4A636 /* AdobeCreativeSDKImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdobeCreativeSDKImage.framework; path = platform/AdobeCreativeSDKImage.framework; sourceTree = "<group>"; };
 		49FC43361A9E8FCB00D4A636 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		49FC43371A9E8FCB00D4A636 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		49FC43381A9E8FCB00D4A636 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		49FC433C1A9E906F00D4A636 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		49FC433E1A9E908C00D4A636 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		49FC43401A9E90A400D4A636 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		49FC43421A9E90B100D4A636 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		49FC43441A9E90D400D4A636 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		49FC43461A9E911D00D4A636 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		49FC43481A9E912900D4A636 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -83,13 +93,10 @@
 				49FC43491A9E912900D4A636 /* MobileCoreServices.framework in Frameworks */,
 				49FC43471A9E911D00D4A636 /* StoreKit.framework in Frameworks */,
 				49FC43451A9E90D400D4A636 /* OpenGLES.framework in Frameworks */,
-				49FC43431A9E90B100D4A636 /* libc++.dylib in Frameworks */,
 				49FC43411A9E90A400D4A636 /* QuartzCore.framework in Frameworks */,
 				49FC433F1A9E908C00D4A636 /* MessageUI.framework in Frameworks */,
-				49FC433D1A9E906F00D4A636 /* libsqlite3.0.dylib in Frameworks */,
 				49FC43391A9E8FCB00D4A636 /* Accelerate.framework in Frameworks */,
 				49FC433A1A9E8FCB00D4A636 /* CoreData.framework in Frameworks */,
-				49FC433B1A9E8FCB00D4A636 /* libz.dylib in Frameworks */,
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
 				49FC43351A9E1E2000D4A636 /* AdobeCreativeSDKImage.framework in Frameworks */,
 				49FC43341A9E1E2000D4A636 /* AdobeCreativeSDKFoundation.framework in Frameworks */,
@@ -124,13 +131,10 @@
 				49FC43481A9E912900D4A636 /* MobileCoreServices.framework */,
 				49FC43461A9E911D00D4A636 /* StoreKit.framework */,
 				49FC43441A9E90D400D4A636 /* OpenGLES.framework */,
-				49FC43421A9E90B100D4A636 /* libc++.dylib */,
 				49FC43401A9E90A400D4A636 /* QuartzCore.framework */,
 				49FC433E1A9E908C00D4A636 /* MessageUI.framework */,
-				49FC433C1A9E906F00D4A636 /* libsqlite3.0.dylib */,
 				49FC43361A9E8FCB00D4A636 /* Accelerate.framework */,
 				49FC43371A9E8FCB00D4A636 /* CoreData.framework */,
-				49FC43381A9E8FCB00D4A636 /* libz.dylib */,
 				49FC43321A9E1E2000D4A636 /* AdobeCreativeSDKFoundation.framework */,
 				49FC43331A9E1E2000D4A636 /* AdobeCreativeSDKImage.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
@@ -141,10 +145,18 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4993602E1A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetView.h */,
+				4993602D1A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetView.m */,
+				4993602F1A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetViewProxy.h */,
+				499360301A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetViewProxy.m */,
 				24DE9E0F11C5FE74003F90F6 /* ComDcodePhotoeditorAdobeModuleAssets.h */,
 				24DE9E1011C5FE74003F90F6 /* ComDcodePhotoeditorAdobeModuleAssets.m */,
 				24DD6CF71134B3F500162E58 /* ComDcodePhotoeditorAdobeModule.h */,
 				24DD6CF81134B3F500162E58 /* ComDcodePhotoeditorAdobeModule.m */,
+				499360351A9FB02700DCFB14 /* AdobePhotoEditorController.h */,
+				499360361A9FB02700DCFB14 /* AdobePhotoEditorController.m */,
+				499360391A9FB5FB00DCFB14 /* PhotoPickerController.h */,
+				4993603A1A9FB5FB00DCFB14 /* PhotoPickerController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -165,6 +177,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4993603B1A9FB5FB00DCFB14 /* PhotoPickerController.h in Headers */,
+				499360331A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetViewProxy.h in Headers */,
+				499360321A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetView.h in Headers */,
+				499360371A9FB02700DCFB14 /* AdobePhotoEditorController.h in Headers */,
 				AA747D9F0F9514B9006C5449 /* ComDcodePhotoeditorAdobe_Prefix.pch in Headers */,
 				24DD6CF91134B3F500162E58 /* ComDcodePhotoeditorAdobeModule.h in Headers */,
 				24DE9E1111C5FE74003F90F6 /* ComDcodePhotoeditorAdobeModuleAssets.h in Headers */,
@@ -241,7 +257,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4993603C1A9FB5FB00DCFB14 /* PhotoPickerController.m in Sources */,
+				499360341A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetViewProxy.m in Sources */,
+				499360381A9FB02700DCFB14 /* AdobePhotoEditorController.m in Sources */,
 				24DD6CFA1134B3F500162E58 /* ComDcodePhotoeditorAdobeModule.m in Sources */,
+				499360311A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetView.m in Sources */,
 				24DE9E1211C5FE74003F90F6 /* ComDcodePhotoeditorAdobeModuleAssets.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
