@@ -18,8 +18,18 @@ Ti.API.info("module is => " + photo_editor_adobe);
 
 label.text = photo_editor_adobe.example();
 
-Ti.API.info("module exampleProp is => " + photo_editor_adobe.exampleProp);
-photo_editor_adobe.exampleProp = "This is a test value";
+if (Ti.Platform.name == "iphone") { {
+	var actionSheet = photo_editor_adobe.createActionSheetView();
+	actionSheet.showActionSheet();
+
+	photo_editor_adobe.addEventListener('avEditorFinished',function(e){
+  		alert("name is "+e.image);
+	});
+
+	photo_editor_adobe.addEventListener('avEditorCancel',function(e){
+  		alert("Cancelled editing...");
+	});
+}
 
 if (Ti.Platform.name == "android") {
 	var proxy = photo_editor_adobe.createExample({
