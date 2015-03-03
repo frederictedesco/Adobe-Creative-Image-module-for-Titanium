@@ -12,10 +12,8 @@
 
 #import "AdobePhotoEditorController.h"
 
-@interface PhotoPickerController : NSObject <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface PhotoPickerController : UIImagePickerController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 - (instancetype)initWith:(AdobePhotoEditorController*)photoEditorController;
-- (BOOL)startCameraController;
-- (BOOL)startPhotoPickerViewController;
 
 @end

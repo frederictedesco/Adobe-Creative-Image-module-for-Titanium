@@ -15,4 +15,8 @@
 
 + (NSDictionary *)convertResultDic:(UIImage *)result;
 
+// Path to assets
++(NSString*)getPathToModuleAsset:(NSString*)fileName;
++(NSString*)getPathToApplicationAsset:(NSString*) fileName;
+
 @end

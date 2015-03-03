@@ -12,12 +12,14 @@
 
 #import "PhotoPickerController.h"
 #import "AdobePhotoEditorController.h"
+#import "PhotoCameraViewController.h"
 
 @interface ComDcodePhotoeditorAdobeActionSheetView ()
 
 @property (nonatomic, retain) UIActionSheet* actionSheet;
 @property (nonatomic, retain) PhotoPickerController* photoPickerController;
 @property (nonatomic, retain) AdobePhotoEditorController* adobePhotoEditorController;
+@property (nonatomic, retain) PhotoCameraViewController* photoCameraViewController;
 @property (nonatomic, retain) UINavigationController* navigationController;
 
 @end
@@ -30,6 +32,7 @@
     self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Photo picture" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take a new photo", @"Choose a photo in my library", nil];
     self.adobePhotoEditorController = [[AdobePhotoEditorController alloc] init];
     self.photoPickerController = [[PhotoPickerController alloc] initWith:_adobePhotoEditorController];
+    self.photoCameraViewController = [[PhotoCameraViewController alloc] init];
     [super initializeState];
 }
 
@@ -39,6 +42,8 @@
     RELEASE_TO_NIL(_actionSheet);
     RELEASE_TO_NIL(_photoPickerController);
     RELEASE_TO_NIL(_adobePhotoEditorController);
+    RELEASE_TO_NIL(_photoCameraViewController);
+    RELEASE_TO_NIL(_navigationController);
     [super dealloc];
 }
 
@@ -74,10 +79,12 @@
 
     if (buttonIndex == 0) {
         NSLog(@"[INFO] Take a photo");
-        [_photoPickerController startCameraController];
+        self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.photoCameraViewController];
+        [[TiApp app] showModalController:self.navigationController animated:YES];
     } else if (buttonIndex == 1) {
         NSLog(@"[INFO] Choose a photo from my library");
-        [_photoPickerController startPhotoPickerViewController];
+        self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.photoPickerController];
+        [[TiApp app] showModalController:self.navigationController animated:YES];
     } else {
         NSLog(@"[INFO] Cancel");
     }

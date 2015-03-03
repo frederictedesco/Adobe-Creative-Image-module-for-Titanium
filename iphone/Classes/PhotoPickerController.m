@@ -8,7 +8,7 @@
 
 #import "PhotoPickerController.h"
 #import <TiApp.h>
-#import <AdobeCreativeSDKImage/AdobeCreativeSDKImage.h>
+#import "AdobePhotoEditorController.h"
 
 @interface PhotoPickerController ()
 
@@ -23,6 +23,17 @@
     self = [super init];
     if (self) {
         self.photoEditorController = photoEditorController;
+        
+        // SourceType and MediaType (Image)
+        self.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        self.mediaTypes = @[(NSString*)kUTTypeImage];
+        
+        // Hides the controls for moving & scaling pictures, or for
+        // trimming movies. To instead show the controls, use YES.
+        self.allowsEditing = NO;
+        
+        self.delegate = self;
+        
     }
     return self;
 }
@@ -33,35 +44,11 @@
     [super dealloc];
 }
 
-- (BOOL)startPhotoPickerViewController {
-    
-    if (([UIImagePickerController isSourceTypeAvailable:
-          UIImagePickerControllerSourceTypePhotoLibrary] == NO))
-        return NO;
-    
-    
-    UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
-    cameraUI.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    
-    cameraUI.mediaTypes = @[(NSString*)kUTTypeImage];
-    
-    // Hides the controls for moving & scaling pictures, or for
-    // trimming movies. To instead show the controls, use YES.
-    cameraUI.allowsEditing = NO;
-    
-    cameraUI.delegate = self;
-    
-    [[TiApp app] showModalController:cameraUI animated:YES];
-    return YES;
-}
-
 #pragma mark - UIImagePickerViewController Delegate
 
 // For responding to the user tapping Cancel.
 - (void)imagePickerControllerDidCancel: (UIImagePickerController *) picker {
     NSLog(@"imagePickerControllerDidCancel");
-    [[TiApp app] hideModalController:picker animated:YES];
-    [picker release];
 }
 
 // For responding to the user accepting a newly-captured picture or movie
@@ -86,8 +73,8 @@ didFinishPickingMediaWithInfo: (NSDictionary *) info {
     
     [picker release];
 
-    AdobeUXImageEditorViewController* editorViewController = [_photoEditorController editorForImage:imageToSave];
-    //self.navigationController
+    AdobePhotoEditorController* adobePhotoEditorVC = [[AdobePhotoEditorController alloc] initWithImage:imageToSave];
+    [self.navigationController pushViewController:adobePhotoEditorVC animated:YES];
 }
 
 @end

@@ -18,6 +18,9 @@ static NSString * const kAFAviarySecret = @"b9a7831e-340c-471b-82f7-2dbe08667c67
 static NSString * const kAVEditorFinished = @"avEditorFinished";
 static NSString * const kAVEditorCancel = @"avEditorCancel";
 
+static NSString * const kModuleGUID = @"5191636b-cc39-4b9d-b0ec-771f9f70b2cc";
+static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
+
 @implementation ComDcodePhotoeditorAdobeModule
 
 #pragma mark Internal
@@ -25,13 +28,13 @@ static NSString * const kAVEditorCancel = @"avEditorCancel";
 // this is generated for your module, please do not change it
 -(id)moduleGUID
 {
-	return @"5191636b-cc39-4b9d-b0ec-771f9f70b2cc";
+	return kModuleGUID;
 }
 
 // this is generated for your module, please do not change it
 -(NSString*)moduleId
 {
-	return @"com.dcode.photoeditor.adobe";
+	return kModuleId;
 }
 
 #pragma mark Lifecycle
@@ -234,5 +237,69 @@ static NSString * const kAVEditorCancel = @"avEditorCancel";
     [editor release];
 }
 
+#pragma Assets Demo Methods
+
++(NSString*)getPathToModuleAsset:(NSString*) fileName
+{
+    // The module assets are copied to the application bundle into the folder pattern
+    // "module/<moduleid>". One way to access these assets is to build a path from the
+    // mainBundle of the application.
+    
+    NSString *pathComponent = [NSString stringWithFormat:@"modules/%@/%@", kModuleId, fileName];
+    NSString *result = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:pathComponent];
+    
+    return result;
+}
+
++(NSString*)getPathToApplicationAsset:(NSString*) fileName
+{
+    // The application assets can be accessed by building a path from the mainBundle of the application.
+    
+    NSString *result = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:fileName];
+    
+    return result;
+}
+
+-(TiBlob*)loadImageFromModule:(id)args
+{
+    ENSURE_SINGLE_ARG(args,NSString);
+    
+    NSLog(@"[ASSETSDEMO] loadImageFromModule %@", args);
+    
+    // Load the image from the module assets
+    NSString *imagePath = [ComDcodePhotoeditorAdobeModule getPathToModuleAsset:args];
+    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
+    if (image == nil) {
+        return nil;
+    }
+    
+    // The image must be converted to a TiBlob before returning
+    TiBlob *result = [[[TiBlob alloc] initWithImage:image] autorelease];
+    
+    NSLog(@"[ASSETSDEMO] %@", result);
+    
+    return result;
+}
+
+-(TiBlob*)loadImageFromApplication:(id)args
+{
+    ENSURE_SINGLE_ARG(args,NSString);
+    
+    NSLog(@"[ASSETSDEMO] loadImageFromApplication %@", args);
+    
+    // Load the image from the application assets
+    NSString *imagePath = [ComDcodePhotoeditorAdobeModule getPathToApplicationAsset:args];
+    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
+    if (image == nil) {
+        return nil;
+    }
+    
+    // The image must be converted to a TiBlob before returning
+    TiBlob *result = [[[TiBlob alloc] initWithImage:image] autorelease];
+    
+    NSLog(@"[ASSETSDEMO] %@", result);
+    
+    return result;	
+}
 
 @end

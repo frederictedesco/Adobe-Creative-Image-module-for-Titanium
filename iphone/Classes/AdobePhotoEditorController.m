@@ -13,36 +13,17 @@
 
 @interface AdobePhotoEditorController ()
 
-@property (nonatomic, retain) ComDcodePhotoeditorAdobeActionSheetView* actionSheet;
-@property (nonatomic, retain) AdobeUXImageEditorViewController *editorController;
-
 @end
 
 @implementation AdobePhotoEditorController
 
-- (instancetype)initFromActionSheet:(ComDcodePhotoeditorAdobeActionSheetView*)actionSheet
+- (instancetype)initWithImage:(UIImage *)image
 {
-    self = [super init];
+    self = [super initWithImage:image];
     if (self) {
-        self.actionSheet = actionSheet;
+        self.delegate = self;
     }
     return self;
-}
-
-- (void)dealloc
-{
-    [_actionSheet release];
-    [_editorController release];
-    [super dealloc];
-}
-
-- (AdobeUXImageEditorViewController*)editorForImage:(UIImage *)imageToEdit
-{
-    NSLog(@"displayEditorForImage");
-    
-    self.editorController = [[AdobeUXImageEditorViewController alloc] initWithImage:imageToEdit];
-    self.editorController.delegate = self;
-    return _editorController;
 }
 
 #pragma mark - Delegate
@@ -51,10 +32,10 @@
 {
     // Handle the result image here
     NSLog(@"Image : %@",image);
-    NSLog(@"[INFO] avEditorFinished %@",_actionSheet.proxy);
+    NSLog(@"[INFO] avEditorFinished");
     [[NSNotificationCenter defaultCenter] postNotificationName:@"avEditorFinished" object:image];
 
-    [[TiApp app] hideModalController:editor animated:YES];
+    [[TiApp app] hideModalController:self.navigationController animated:YES];
 }
 
 - (void)photoEditorCanceled:(AdobeUXImageEditorViewController *)editor
@@ -63,7 +44,7 @@
     NSLog(@"You have cancelled photo editing");
     NSLog(@"avEditorCancel XCODE");
     [[NSNotificationCenter defaultCenter] postNotificationName:@"avEditorCancel" object:nil];
-    [[TiApp app] hideModalController:editor animated:YES];
+    [[TiApp app] hideModalController:self.navigationController animated:YES];
 }
 
 @end

@@ -27,17 +27,19 @@
 		24DE9E1111C5FE74003F90F6 /* ComDcodePhotoeditorAdobeModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* ComDcodePhotoeditorAdobeModuleAssets.h */; };
 		24DE9E1211C5FE74003F90F6 /* ComDcodePhotoeditorAdobeModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* ComDcodePhotoeditorAdobeModuleAssets.m */; };
 		495277851AA46ABD00BAA216 /* AdobePhotoEditorController.h in Headers */ = {isa = PBXBuildFile; fileRef = 495277831AA46ABD00BAA216 /* AdobePhotoEditorController.h */; };
-		495277861AA46ABD00BAA216 /* AdobePhotoEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495277841AA46ABD00BAA216 /* AdobePhotoEditorController.m */; };
+		495277861AA46ABD00BAA216 /* AdobePhotoEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495277841AA46ABD00BAA216 /* AdobePhotoEditorController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		495277AA1AA6009000BAA216 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 495277A91AA6009000BAA216 /* AVFoundation.framework */; };
+		495277AC1AA6024900BAA216 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 495277AB1AA6024900BAA216 /* ImageIO.framework */; };
 		495730391AA5427A004AE8DA /* LLSimpleCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 495730351AA5427A004AE8DA /* LLSimpleCamera.h */; };
-		4957303A1AA5427A004AE8DA /* LLSimpleCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 495730361AA5427A004AE8DA /* LLSimpleCamera.m */; };
+		4957303A1AA5427A004AE8DA /* LLSimpleCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 495730361AA5427A004AE8DA /* LLSimpleCamera.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		4957303B1AA5427A004AE8DA /* UIImage+FixOrientation.h in Headers */ = {isa = PBXBuildFile; fileRef = 495730371AA5427A004AE8DA /* UIImage+FixOrientation.h */; };
-		4957303C1AA5427A004AE8DA /* UIImage+FixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 495730381AA5427A004AE8DA /* UIImage+FixOrientation.m */; };
+		4957303C1AA5427A004AE8DA /* UIImage+FixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 495730381AA5427A004AE8DA /* UIImage+FixOrientation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		495730441AA542CE004AE8DA /* UIImage+Crop.h in Headers */ = {isa = PBXBuildFile; fileRef = 4957303E1AA542CE004AE8DA /* UIImage+Crop.h */; };
-		495730451AA542CE004AE8DA /* UIImage+Crop.m in Sources */ = {isa = PBXBuildFile; fileRef = 4957303F1AA542CE004AE8DA /* UIImage+Crop.m */; };
+		495730451AA542CE004AE8DA /* UIImage+Crop.m in Sources */ = {isa = PBXBuildFile; fileRef = 4957303F1AA542CE004AE8DA /* UIImage+Crop.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		495730461AA542CE004AE8DA /* UIImage+Resize.h in Headers */ = {isa = PBXBuildFile; fileRef = 495730401AA542CE004AE8DA /* UIImage+Resize.h */; };
-		495730471AA542CE004AE8DA /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 495730411AA542CE004AE8DA /* UIImage+Resize.m */; };
+		495730471AA542CE004AE8DA /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 495730411AA542CE004AE8DA /* UIImage+Resize.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		495730481AA542CE004AE8DA /* ViewUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 495730421AA542CE004AE8DA /* ViewUtils.h */; };
-		495730491AA542CE004AE8DA /* ViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 495730431AA542CE004AE8DA /* ViewUtils.m */; };
+		495730491AA542CE004AE8DA /* ViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 495730431AA542CE004AE8DA /* ViewUtils.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		4957304C1AA5A6C3004AE8DA /* PhotoCameraViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4957304A1AA5A6C3004AE8DA /* PhotoCameraViewController.h */; };
 		4957304D1AA5A6C3004AE8DA /* PhotoCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4957304B1AA5A6C3004AE8DA /* PhotoCameraViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		499360311A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4993602D1A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetView.m */; };
@@ -78,6 +80,8 @@
 		495277831AA46ABD00BAA216 /* AdobePhotoEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdobePhotoEditorController.h; path = Classes/AdobePhotoEditorController.h; sourceTree = "<group>"; };
 		495277841AA46ABD00BAA216 /* AdobePhotoEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdobePhotoEditorController.m; path = Classes/AdobePhotoEditorController.m; sourceTree = "<group>"; };
 		495277871AA46B4E00BAA216 /* module.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = module.xcconfig; sourceTree = "<group>"; };
+		495277A91AA6009000BAA216 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		495277AB1AA6024900BAA216 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		495730351AA5427A004AE8DA /* LLSimpleCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LLSimpleCamera.h; path = Classes/External/LLSimpleCamera/LLSimpleCamera/LLSimpleCamera.h; sourceTree = "<group>"; };
 		495730361AA5427A004AE8DA /* LLSimpleCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LLSimpleCamera.m; path = Classes/External/LLSimpleCamera/LLSimpleCamera/LLSimpleCamera.m; sourceTree = "<group>"; };
 		495730371AA5427A004AE8DA /* UIImage+FixOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+FixOrientation.h"; path = "Classes/External/LLSimpleCamera/LLSimpleCamera/UIImage+FixOrientation.h"; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				495277AC1AA6024900BAA216 /* ImageIO.framework in Frameworks */,
+				495277AA1AA6009000BAA216 /* AVFoundation.framework in Frameworks */,
 				49FC43491A9E912900D4A636 /* MobileCoreServices.framework in Frameworks */,
 				49FC43471A9E911D00D4A636 /* StoreKit.framework in Frameworks */,
 				49FC43451A9E90D400D4A636 /* OpenGLES.framework in Frameworks */,
@@ -153,6 +159,8 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				495277AB1AA6024900BAA216 /* ImageIO.framework */,
+				495277A91AA6009000BAA216 /* AVFoundation.framework */,
 				49FC43481A9E912900D4A636 /* MobileCoreServices.framework */,
 				49FC43461A9E911D00D4A636 /* StoreKit.framework */,
 				49FC43441A9E90D400D4A636 /* OpenGLES.framework */,

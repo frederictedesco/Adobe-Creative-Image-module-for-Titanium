@@ -9,7 +9,8 @@
 #import "PhotoCameraViewController.h"
 #import "LLSimpleCamera.h"
 #import "ViewUtils.h"
-#import <AdobeCreativeSDKImage/AdobeCreativeSDKImage.h>
+#import "AdobePhotoEditorController.h"
+#import "ComDcodePhotoeditorAdobeModule.h"
 
 @interface PhotoCameraViewController ()
 
@@ -86,8 +87,8 @@
     // button to toggle flash
     self.flashButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.flashButton.frame = CGRectMake(0, 0, 16.0f + 20.0f, 24.0f + 20.0f);
-    [self.flashButton setImage:[UIImage imageNamed:@"camera-flash-off.png"] forState:UIControlStateNormal];
-    [self.flashButton setImage:[UIImage imageNamed:@"camera-flash-on.png"] forState:UIControlStateSelected];
+    [self.flashButton setImage:[UIImage imageNamed:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-flash-off.png"]] forState:UIControlStateNormal];
+    [self.flashButton setImage:[UIImage imageNamed:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-flash-on.png"]] forState:UIControlStateSelected];
     self.flashButton.imageEdgeInsets = UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f);
     [self.flashButton addTarget:self action:@selector(flashButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.flashButton];
@@ -95,7 +96,7 @@
     // button to toggle camera positions
     self.switchButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.switchButton.frame = CGRectMake(0, 0, 29.0f + 20.0f, 22.0f + 20.0f);
-    [self.switchButton setImage:[UIImage imageNamed:@"camera-switch.png"] forState:UIControlStateNormal];
+    [self.switchButton setImage:[UIImage imageNamed:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-switch.png"]] forState:UIControlStateNormal];
     self.switchButton.imageEdgeInsets = UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f);
     [self.switchButton addTarget:self action:@selector(switchButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.switchButton];
@@ -125,8 +126,7 @@
     if(self.camera.cameraFlash == CameraFlashOff) {
         self.camera.cameraFlash = CameraFlashOn;
         self.flashButton.selected = YES;
-    }
-    else {
+    } else {
         self.camera.cameraFlash = CameraFlashOff;
         self.flashButton.selected = NO;
     }
@@ -143,8 +143,8 @@
             [camera stop];
             
             // show the image
-            AdobeUXImageEditorViewController* editorViewController = [_photoEditorController editorForImage:imageToSave];
-            [self.navigationController pushViewController:_photoEditorController animated:YES];
+            AdobePhotoEditorController* editorViewController = [[AdobePhotoEditorController alloc]initWithImage:image];
+            [self.navigationController pushViewController:editorViewController animated:YES];
         }
     } exactSeenImage:YES];
 }

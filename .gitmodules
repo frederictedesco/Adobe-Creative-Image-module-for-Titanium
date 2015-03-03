@@ -1,3 +1,6 @@
 [submodule "iphone/Classes/External/LLSimpleCamera"]
 	path = iphone/Classes/External/LLSimpleCamera
 	url = https://github.com/omergul123/LLSimpleCamera.git
+[submodule "iphone/Classes/External/UzysAssetsPickerController"]
+	path = iphone/Classes/External/UzysAssetsPickerController
+	url = https://github.com/uzysjung/UzysAssetsPickerController.git
