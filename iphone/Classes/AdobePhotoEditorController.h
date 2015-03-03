@@ -14,6 +14,6 @@
 @interface AdobePhotoEditorController : NSObject <AdobeUXImageEditorViewControllerDelegate>
 
 - (instancetype)initFromActionSheet:(ComDcodePhotoeditorAdobeActionSheet*)actionSheet;
-- (void)displayEditorForImage:(UIImage *)imageToEdit;
+- (AdobeUXImageEditorViewController*)editorForImage:(UIImage *)imageToEdit;
 
 @end

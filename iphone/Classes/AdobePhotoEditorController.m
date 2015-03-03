@@ -14,6 +14,7 @@
 @interface AdobePhotoEditorController ()
 
 @property (nonatomic, retain) ComDcodePhotoeditorAdobeActionSheetView* actionSheet;
+@property (nonatomic, retain) AdobeUXImageEditorViewController *editorController;
 
 @end
 
@@ -31,15 +32,17 @@
 - (void)dealloc
 {
     [_actionSheet release];
+    [_editorController release];
     [super dealloc];
 }
 
-- (void)displayEditorForImage:(UIImage *)imageToEdit
+- (AdobeUXImageEditorViewController*)editorForImage:(UIImage *)imageToEdit
 {
     NSLog(@"displayEditorForImage");
-    AdobeUXImageEditorViewController *editorController = [[AdobeUXImageEditorViewController alloc] initWithImage:imageToEdit];
-    editorController.delegate = self;
-    [[TiApp app] showModalController: editorController animated:YES];
+    
+    self.editorController = [[AdobeUXImageEditorViewController alloc] initWithImage:imageToEdit];
+    self.editorController.delegate = self;
+    return _editorController;
 }
 
 #pragma mark - Delegate

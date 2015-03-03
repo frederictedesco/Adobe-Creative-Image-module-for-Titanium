@@ -8,6 +8,7 @@
 
 #import "PhotoPickerController.h"
 #import <TiApp.h>
+#import <AdobeCreativeSDKImage/AdobeCreativeSDKImage.h>
 
 @interface PhotoPickerController ()
 
@@ -30,26 +31,6 @@
 {
     [_photoEditorController release];
     [super dealloc];
-}
-
-- (BOOL)startCameraController {
-    
-    if (([UIImagePickerController isSourceTypeAvailable:
-          UIImagePickerControllerSourceTypeCamera] == NO))
-        return NO;
-    
-    
-    UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
-    cameraUI.sourceType = UIImagePickerControllerSourceTypeCamera;
-    
-    // Hides the controls for moving & scaling pictures, or for
-    // trimming movies. To instead show the controls, use YES.
-    cameraUI.allowsEditing = NO;
-    
-    cameraUI.delegate = self;
-    
-    [[TiApp app] showModalController:cameraUI animated:YES];
-    return YES;
 }
 
 - (BOOL)startPhotoPickerViewController {
@@ -103,11 +84,10 @@ didFinishPickingMediaWithInfo: (NSDictionary *) info {
         imageToSave = originalImage;
     }
     
-    [[TiApp app] hideModalController:picker animated:YES];
-    
     [picker release];
 
-    [_photoEditorController displayEditorForImage:imageToSave];
+    AdobeUXImageEditorViewController* editorViewController = [_photoEditorController editorForImage:imageToSave];
+    //self.navigationController
 }
 
 @end

@@ -1,0 +1,3 @@
+[submodule "iphone/Classes/External/LLSimpleCamera"]
+	path = iphone/Classes/External/LLSimpleCamera
+	url = https://github.com/omergul123/LLSimpleCamera.git

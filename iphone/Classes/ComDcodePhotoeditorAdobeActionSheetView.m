@@ -18,6 +18,7 @@
 @property (nonatomic, retain) UIActionSheet* actionSheet;
 @property (nonatomic, retain) PhotoPickerController* photoPickerController;
 @property (nonatomic, retain) AdobePhotoEditorController* adobePhotoEditorController;
+@property (nonatomic, retain) UINavigationController* navigationController;
 
 @end
 
