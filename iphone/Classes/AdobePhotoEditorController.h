@@ -11,8 +11,9 @@
 #import <AdobeCreativeSDKImage/AdobeCreativeSDKImage.h>
 @class ComDcodePhotoeditorAdobeActionSheet;
 
-@interface AdobePhotoEditorController : AdobeUXImageEditorViewController <AdobeUXImageEditorViewControllerDelegate>
+@interface AdobePhotoEditorController : NSObject <AdobeUXImageEditorViewControllerDelegate>
 
-- (instancetype)initWithImage:(UIImage *)image;
+- (instancetype)initFromActionSheet:(ComDcodePhotoeditorAdobeActionSheet*)actionSheet;
+- (void)displayEditorForImage:(UIImage *)imageToEdit;
 
 @end

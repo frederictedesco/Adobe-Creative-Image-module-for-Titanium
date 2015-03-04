@@ -83,8 +83,7 @@
         [[TiApp app] showModalController:self.navigationController animated:YES];
     } else if (buttonIndex == 1) {
         NSLog(@"[INFO] Choose a photo from my library");
-        self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.photoPickerController];
-        [[TiApp app] showModalController:self.navigationController animated:YES];
+        [[TiApp app] showModalController:self.photoPickerController animated:YES];
     } else {
         NSLog(@"[INFO] Cancel");
     }

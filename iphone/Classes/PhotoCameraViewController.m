@@ -12,12 +12,15 @@
 #import "AdobePhotoEditorController.h"
 #import "ComDcodePhotoeditorAdobeModule.h"
 
+#import <TiApp.h>
+
 @interface PhotoCameraViewController ()
 
 @property (strong, nonatomic) LLSimpleCamera *camera;
 @property (strong, nonatomic) UIButton *snapButton;
 @property (strong, nonatomic) UIButton *switchButton;
 @property (strong, nonatomic) UIButton *flashButton;
+@property (strong, nonatomic) AdobePhotoEditorController* editorViewController;
 
 @end
 
@@ -30,6 +33,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.editorViewController = [[AdobePhotoEditorController alloc] init];
     
     self.view.backgroundColor = [UIColor redColor];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
@@ -143,8 +148,7 @@
             [camera stop];
             
             // show the image
-            AdobePhotoEditorController* editorViewController = [[AdobePhotoEditorController alloc]initWithImage:image];
-            [self.navigationController pushViewController:editorViewController animated:YES];
+            [_editorViewController displayEditorForImage:image];
         }
     } exactSeenImage:YES];
 }

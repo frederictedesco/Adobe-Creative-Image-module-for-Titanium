@@ -73,8 +73,7 @@ didFinishPickingMediaWithInfo: (NSDictionary *) info {
     
     [picker release];
 
-    AdobePhotoEditorController* adobePhotoEditorVC = [[AdobePhotoEditorController alloc] initWithImage:imageToSave];
-    [self.navigationController pushViewController:adobePhotoEditorVC animated:YES];
+    [self.photoEditorController displayEditorForImage:imageToSave];
 }
 
 @end
