@@ -42,10 +42,6 @@
 		495730491AA542CE004AE8DA /* ViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 495730431AA542CE004AE8DA /* ViewUtils.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		4957304C1AA5A6C3004AE8DA /* PhotoCameraViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4957304A1AA5A6C3004AE8DA /* PhotoCameraViewController.h */; };
 		4957304D1AA5A6C3004AE8DA /* PhotoCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4957304B1AA5A6C3004AE8DA /* PhotoCameraViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		499360311A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4993602D1A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetView.m */; };
-		499360321A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4993602E1A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetView.h */; };
-		499360331A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetViewProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4993602F1A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetViewProxy.h */; };
-		499360341A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetViewProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 499360301A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetViewProxy.m */; };
 		4993603B1A9FB5FB00DCFB14 /* PhotoPickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 499360391A9FB5FB00DCFB14 /* PhotoPickerController.h */; };
 		4993603C1A9FB5FB00DCFB14 /* PhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4993603A1A9FB5FB00DCFB14 /* PhotoPickerController.m */; };
 		49FC43341A9E1E2000D4A636 /* AdobeCreativeSDKFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43321A9E1E2000D4A636 /* AdobeCreativeSDKFoundation.framework */; };
@@ -94,10 +90,6 @@
 		495730431AA542CE004AE8DA /* ViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewUtils.m; path = Classes/External/LLSimpleCamera/LLSimpleCameraExample/ViewUtils.m; sourceTree = "<group>"; };
 		4957304A1AA5A6C3004AE8DA /* PhotoCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoCameraViewController.h; path = Classes/PhotoCameraViewController.h; sourceTree = "<group>"; };
 		4957304B1AA5A6C3004AE8DA /* PhotoCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoCameraViewController.m; path = Classes/PhotoCameraViewController.m; sourceTree = "<group>"; };
-		4993602D1A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComDcodePhotoeditorAdobeActionSheetView.m; path = Classes/ComDcodePhotoeditorAdobeActionSheetView.m; sourceTree = "<group>"; };
-		4993602E1A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComDcodePhotoeditorAdobeActionSheetView.h; path = Classes/ComDcodePhotoeditorAdobeActionSheetView.h; sourceTree = "<group>"; };
-		4993602F1A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetViewProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComDcodePhotoeditorAdobeActionSheetViewProxy.h; path = Classes/ComDcodePhotoeditorAdobeActionSheetViewProxy.h; sourceTree = "<group>"; };
-		499360301A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetViewProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComDcodePhotoeditorAdobeActionSheetViewProxy.m; path = Classes/ComDcodePhotoeditorAdobeActionSheetViewProxy.m; sourceTree = "<group>"; };
 		499360391A9FB5FB00DCFB14 /* PhotoPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoPickerController.h; path = Classes/PhotoPickerController.h; sourceTree = "<group>"; };
 		4993603A1A9FB5FB00DCFB14 /* PhotoPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoPickerController.m; path = Classes/PhotoPickerController.m; sourceTree = "<group>"; };
 		49FC43321A9E1E2000D4A636 /* AdobeCreativeSDKFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdobeCreativeSDKFoundation.framework; path = platform/AdobeCreativeSDKFoundation.framework; sourceTree = "<group>"; };
@@ -180,10 +172,6 @@
 			children = (
 				4957303D1AA5428E004AE8DA /* Utilities */,
 				495730321AA5422D004AE8DA /* External */,
-				4993602E1A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetView.h */,
-				4993602D1A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetView.m */,
-				4993602F1A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetViewProxy.h */,
-				499360301A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetViewProxy.m */,
 				24DE9E0F11C5FE74003F90F6 /* ComDcodePhotoeditorAdobeModuleAssets.h */,
 				24DE9E1011C5FE74003F90F6 /* ComDcodePhotoeditorAdobeModuleAssets.m */,
 				24DD6CF71134B3F500162E58 /* ComDcodePhotoeditorAdobeModule.h */,
@@ -253,8 +241,6 @@
 				495730461AA542CE004AE8DA /* UIImage+Resize.h in Headers */,
 				495730441AA542CE004AE8DA /* UIImage+Crop.h in Headers */,
 				495730391AA5427A004AE8DA /* LLSimpleCamera.h in Headers */,
-				499360331A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetViewProxy.h in Headers */,
-				499360321A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetView.h in Headers */,
 				AA747D9F0F9514B9006C5449 /* ComDcodePhotoeditorAdobe_Prefix.pch in Headers */,
 				495277851AA46ABD00BAA216 /* AdobePhotoEditorController.h in Headers */,
 				495730481AA542CE004AE8DA /* ViewUtils.h in Headers */,
@@ -338,11 +324,9 @@
 				4957303A1AA5427A004AE8DA /* LLSimpleCamera.m in Sources */,
 				4957303C1AA5427A004AE8DA /* UIImage+FixOrientation.m in Sources */,
 				495730491AA542CE004AE8DA /* ViewUtils.m in Sources */,
-				499360341A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetViewProxy.m in Sources */,
 				24DD6CFA1134B3F500162E58 /* ComDcodePhotoeditorAdobeModule.m in Sources */,
 				495277861AA46ABD00BAA216 /* AdobePhotoEditorController.m in Sources */,
 				4957304D1AA5A6C3004AE8DA /* PhotoCameraViewController.m in Sources */,
-				499360311A9FAE5300DCFB14 /* ComDcodePhotoeditorAdobeActionSheetView.m in Sources */,
 				24DE9E1211C5FE74003F90F6 /* ComDcodePhotoeditorAdobeModuleAssets.m in Sources */,
 				495730471AA542CE004AE8DA /* UIImage+Resize.m in Sources */,
 			);

@@ -6,12 +6,16 @@
  */
 
 #import "ComDcodePhotoeditorAdobeModule.h"
-#import "TiBase.h"
-#import "TiHost.h"
-#import "TiUtils.h"
-#import "TiApp.h"
+
+// Titanium
+#import <TiBase.h>
+#import <TiHost.h>
+#import <TiUtils.h>
+#import <TiApp.h>
+
 #import <AdobeCreativeSDKFoundation/AdobeCreativeSDKFoundation.h>
-#import "ComDcodePhotoeditorAdobeActionSheetView.h"
+
+#import "PhotoCameraViewController.h"
 
 static NSString * const kAFAviaryAPIKey = @"3d8601432f3e4c65821c610c134e1457";
 static NSString * const kAFAviarySecret = @"b9a7831e-340c-471b-82f7-2dbe08667c67";
@@ -167,11 +171,12 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
 
 #pragma Public APIs
 
--(void)newImageEditor
+-(void)newPhotoCamera:(id)args
 {
-    ENSURE_UI_THREAD_0_ARGS
-    
-    NSLog(@"[INFO] newImageEditor Li",self);
+    ENSURE_UI_THREAD_1_ARG(args)
+    ENSURE_SINGLE_ARG(args, NSDictionary);
+
+    NSLog(@"[INFO] newPhotoCamera %@",args);
     
     // Set Supported Orientations
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
@@ -179,7 +184,17 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
         [AFPhotoEditorCustomization setSupportedIpadOrientations:supportedOrientations];
     }
     
-    [[[[ComDcodePhotoeditorAdobeActionSheetView alloc] init] autorelease] showActionSheet:nil];
+    PhotoCameraViewController* photoCameraVC = [[PhotoCameraViewController alloc] init];
+    [[TiApp app] showModalController:photoCameraVC animated:YES];
+}
+
+-(void)newPhotoCamera:(id)args withTools:(NSArray *)toolKey
+{
+    
+    NSArray *tools = [self convertToRealToolsKey:toolKey];
+    [AdobeImageEditorCustomization setToolOrder:tools];
+    
+    [[TiApp app] showModalController:editorController animated: NO];
 }
 
 -(void)newImageEditor:(id)params

@@ -13,6 +13,8 @@
     AdobeUXImageEditorViewController *editorController;
 }
 
+- (void)newPhotoCamera:(id)args;
+
 + (NSDictionary *)convertResultDic:(UIImage *)result;
 
 // Path to assets

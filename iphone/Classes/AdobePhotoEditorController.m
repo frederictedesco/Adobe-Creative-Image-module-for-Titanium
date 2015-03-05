@@ -7,7 +7,6 @@
 //
 
 #import "AdobePhotoEditorController.h"
-#import "ComDcodePhotoeditorAdobeActionSheetView.h"
 #import "ComDcodePhotoeditorAdobeModule.h"
 #import <TiApp.h>
 
@@ -19,7 +18,7 @@
 
 @implementation AdobePhotoEditorController
 
-- (instancetype)initFromActionSheet:(ComDcodePhotoeditorAdobeActionSheetView*)actionSheet
+- (instancetype)initFromActionSheet:(UIActionSheet*)actionSheet
 {
     self = [super init];
     if (self) {
@@ -47,18 +46,17 @@
     NSLog(@"Image : %@",image);
     NSLog(@"[INFO] avEditorFinished");
     [[NSNotificationCenter defaultCenter] postNotificationName:@"avEditorFinished" object:image];
-
-    [[TiApp app] hideModalController:editor animated:YES];
     
-    if([view_parentViewController(editor) respondsToSelector:@selector(dismissViewControllerAnimated:completion:)]) {
-        NSLog(@"[INFO] Dismiss View using dismissViewControllerAnimated %@",editor.presentingViewController);
-        [editor.presentingViewController dismissViewControllerAnimated:(NO) completion:nil];
-    } else if([view_parentViewController(editor) respondsToSelector:@selector(dismissModalViewControllerAnimated:)]) {
-        NSLog(@"[INFO] Dismiss View using dismissModalView %@",view_parentViewController(editor));
-        [view_parentViewController(editor) dismissViewControllerAnimated:NO completion:nil];
+    /*if([view_parentViewController(editor) respondsToSelector:@selector(dismissViewControllerAnimated:completion:)]) {
+        NSLog(@"[INFO] Dismiss View using dismissViewControllerAnimated %@ - %@",editor.presentingViewController,editor.presentingViewController.presentingViewController);
+        [editor.presentingViewController dismissViewControllerAnimated:NO completion:^{
+            [[TiApp app] hideModalController:editor.presentingViewController.presentingViewController animated:NO];
+        }];
     } else {
         NSLog(@"Oooops, what system is this ?!!! - should never see this !");
-    }
+    }*/
+    
+    [self dismissModalStack:editor];
 }
 
 - (void)photoEditorCanceled:(AdobeUXImageEditorViewController *)editor
@@ -68,17 +66,20 @@
     NSLog(@"avEditorCancel XCODE");
     [[NSNotificationCenter defaultCenter] postNotificationName:@"avEditorCancel" object:nil];
     
-    [[TiApp app] hideModalController:editor animated:YES];
-    
-    if([view_parentViewController(editor) respondsToSelector:@selector(dismissViewControllerAnimated:completion:)]) {
-        NSLog(@"[INFO] Dismiss View using dismissViewControllerAnimated %@",editor.presentingViewController);
-        [editor.presentingViewController dismissViewControllerAnimated:(NO) completion:nil];
-    } else if([view_parentViewController(editor) respondsToSelector:@selector(dismissModalViewControllerAnimated:)]) {
-        NSLog(@"[INFO] Dismiss View using dismissModalView %@",view_parentViewController(editor));
-        [view_parentViewController(editor) dismissViewControllerAnimated:NO completion:nil];
+    if([editor respondsToSelector:@selector(dismissViewControllerAnimated:completion:)]) {
+        NSLog(@"[INFO] Dismiss View using dismissViewControllerAnimated %@ - %@",editor.presentingViewController,editor.presentingViewController.presentingViewController);
+        [[TiApp app] hideModalController:editor animated:NO];
     } else {
         NSLog(@"Oooops, what system is this ?!!! - should never see this !");
     }
+}
+
+-(void)dismissModalStack:(UIViewController*)masterVC {
+    UIViewController *vc = masterVC.presentingViewController;
+    while (vc.presentingViewController) {
+        vc = vc.presentingViewController;
+    }
+    [vc dismissViewControllerAnimated:YES completion:NULL];
 }
 
 @end

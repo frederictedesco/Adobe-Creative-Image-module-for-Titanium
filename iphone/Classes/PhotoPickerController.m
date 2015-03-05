@@ -49,6 +49,7 @@
 // For responding to the user tapping Cancel.
 - (void)imagePickerControllerDidCancel: (UIImagePickerController *) picker {
     NSLog(@"imagePickerControllerDidCancel");
+    [self dismissViewControllerAnimated:self completion:nil];
 }
 
 // For responding to the user accepting a newly-captured picture or movie
