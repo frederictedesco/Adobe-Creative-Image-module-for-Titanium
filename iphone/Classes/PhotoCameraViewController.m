@@ -183,11 +183,14 @@
 }
 
 - (void)cameraRollButtonPressed:(UIButton *)button {
+    NSLog(@"[INFO] Taking a photo...");
     [[TiApp app] showModalController:self.photoPickerController animated:YES];
 }
 
 - (void)crossButtonPressed:(UIButton *)button {
+    NSLog(@"[INFO] Close camera");
     [[TiApp app] hideModalController:self animated:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"camera:cancel" object:nil];
 }
 
 /* other lifecycle methods */
