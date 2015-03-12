@@ -150,9 +150,15 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
     NSMutableArray *tools = [[[NSMutableArray alloc]initWithCapacity:[toolsKey count]]autorelease];
     for (NSString *key in toolsKey){
         NSString *lowcase = [key lowercaseString];
-        NSString *realKey = [lowcase substringFromIndex:3];
-        if ([realKey isEqualToString: @"adjustments"]) {
-            realKey = @"adjust";
+        NSString *realKey = [lowcase substringFromIndex:17];
+        if([realKey isEqualToString:@"ColorAdjust"]) {
+            realKey = kAdobeImageEditorColorAdjust;
+        } else if([realKey isEqualToString:@"LightingAdjust"]) {
+            realKey = kAdobeImageEditorLightingAdjust;
+        } else if([realKey isEqualToString:@"Focus"]) {
+            realKey = kAdobeImageEditorFocus;
+        } else if ([realKey isEqualToString:@"Splash"]) {
+            realKey = kAdobeImageEditorSplash;
         }
         [tools addObject:realKey];
     }
@@ -186,6 +192,12 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         NSArray * supportedOrientations = @[@(UIInterfaceOrientationPortrait), @(UIInterfaceOrientationPortraitUpsideDown), @(UIInterfaceOrientationLandscapeLeft), @(UIInterfaceOrientationLandscapeRight)];
         [AFPhotoEditorCustomization setSupportedIpadOrientations:supportedOrientations];
+    }
+    
+    NSArray *tools = [self convertToRealToolsKey:(NSArray *)[args objectForKey:@"tools"]];
+    
+    if (tools) {
+        [AdobeImageEditorCustomization setToolOrder:tools];
     }
     
     PhotoCameraViewController* photoCameraVC = [[PhotoCameraViewController alloc] init];

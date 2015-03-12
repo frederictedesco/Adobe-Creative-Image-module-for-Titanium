@@ -45,7 +45,7 @@
     self.editorViewController = [[AdobePhotoEditorController alloc] init];
     self.photoPickerController = [[PhotoPickerController alloc] initWith:self.editorViewController];
     
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor blackColor];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -54,6 +54,8 @@
     
     // create camera vc
     self.camera = [[LLSimpleCamera alloc] initWithQuality:CameraQualityPhoto andPosition:CameraPositionBack];
+    
+    NSLog(@"[INFO] Camera Width/Height : %f %f",screenRect.size.width, screenRect.size.height);
     
     // attach to a view controller
     [self.camera attachToViewController:self withFrame:CGRectMake(0, 0, screenRect.size.width, screenRect.size.width)];
@@ -202,12 +204,12 @@
     self.snapButton.center = self.view.contentCenter;
     self.snapButton.bottom = self.view.height - 15;
     
-    self.flashButton.center = self.view.contentCenter;
+    self.flashButton.right = self.view.width - 5.0f;
     self.flashButton.top = 5.0f;
-    
+
+    self.switchButton.center = self.view.contentCenter;
     self.switchButton.top = 5.0f;
-    self.switchButton.right = self.view.width - 5.0f;
-    
+
     self.cameraRollButton.left = 8;
     self.cameraRollButton.bottom = self.view.height - 15;
 }
@@ -240,6 +242,10 @@
         NSLog(@"[ERR9R] No groups, %@",error);
         block(nil);
     }];
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 /*
