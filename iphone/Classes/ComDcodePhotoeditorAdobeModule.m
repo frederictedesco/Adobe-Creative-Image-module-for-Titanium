@@ -57,14 +57,17 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
     });
     
     [[NSNotificationCenter defaultCenter] addObserverForName:kAVEditorFinished object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
         [self fireEvent:kAVEditorFinished withObject:[ComDcodePhotoeditorAdobeModule convertResultDic:(UIImage*)note.object]];
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:kAVEditorCancel object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
         [self fireEvent:kAVEditorCancel withObject:nil];
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:@"camera:cancel" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
         [self fireEvent:@"camera:cancel" withObject:nil];
     }];
 }
@@ -151,13 +154,13 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
     for (NSString *key in toolsKey){
         NSString *lowcase = [key lowercaseString];
         NSString *realKey = [lowcase substringFromIndex:17];
-        if([realKey isEqualToString:@"ColorAdjust"]) {
+        if([realKey isEqualToString:@"coloradjust"]) {
             realKey = kAdobeImageEditorColorAdjust;
-        } else if([realKey isEqualToString:@"LightingAdjust"]) {
+        } else if([realKey isEqualToString:@"lightingadjust"]) {
             realKey = kAdobeImageEditorLightingAdjust;
-        } else if([realKey isEqualToString:@"Focus"]) {
+        } else if([realKey isEqualToString:@"focus"]) {
             realKey = kAdobeImageEditorFocus;
-        } else if ([realKey isEqualToString:@"Splash"]) {
+        } else if ([realKey isEqualToString:@"splash"]) {
             realKey = kAdobeImageEditorSplash;
         }
         [tools addObject:realKey];
@@ -200,6 +203,7 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
         [AdobeImageEditorCustomization setToolOrder:tools];
     }
     
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     PhotoCameraViewController* photoCameraVC = [[PhotoCameraViewController alloc] init];
     [[TiApp app] showModalController:photoCameraVC animated:YES];
 }
