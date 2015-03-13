@@ -55,6 +55,8 @@
     // create camera vc
     self.camera = [[LLSimpleCamera alloc] initWithQuality:CameraQualityPhoto andPosition:CameraPositionBack];
     
+    self.camera.useDeviceOrientation = YES;
+    
     NSLog(@"[INFO] Camera Width/Height : %f %f",screenRect.size.width, screenRect.size.height);
     
     // attach to a view controller
@@ -98,8 +100,7 @@
     // button to toggle flash
     self.flashButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.flashButton.frame = CGRectMake(0, 0, 40.0f + 20.0f, 28.0f + 20.0f);
-    [self.flashButton setImage:[UIImage imageNamed:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-flash-off.png"]] forState:UIControlStateNormal];
-    [self.flashButton setImage:[UIImage imageNamed:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-flash-on.png"]] forState:UIControlStateSelected];
+    [self changeFlashButtonImage:self.camera.flash];
     self.flashButton.imageEdgeInsets = UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f);
     [self.flashButton addTarget:self action:@selector(flashButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.flashButton];
@@ -159,12 +160,24 @@
 
 - (void)flashButtonPressed:(UIButton *)button {
     
-    if(self.camera.cameraFlash == CameraFlashOff) {
-        self.camera.cameraFlash = CameraFlashOn;
-        self.flashButton.selected = YES;
+    if(self.camera.flash == CameraFlashOff) {
+        [self.camera updateFlashMode:CameraFlashAuto];
+    } else if (self.camera.flash == CameraFlashOn) {
+        [self.camera updateFlashMode:CameraFlashOff];
     } else {
-        self.camera.cameraFlash = CameraFlashOff;
-        self.flashButton.selected = NO;
+        [self.camera updateFlashMode:CameraFlashOn];
+    }
+    
+    [self changeFlashButtonImage:self.camera.flash];
+}
+
+- (void)changeFlashButtonImage:(CameraFlash)flash {
+    if(self.camera.flash == CameraFlashOff) {
+        [self.flashButton setImage:[UIImage imageNamed:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-flash-off.png"]] forState:UIControlStateNormal];
+    } else if (self.camera.flash == CameraFlashOn) {
+        [self.flashButton setImage:[UIImage imageNamed:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-flash-on.png"]] forState:UIControlStateNormal];
+    } else {
+        [self.flashButton setImage:[UIImage imageNamed:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-flash-auto.png"]] forState:UIControlStateNormal];
     }
 }
 
