@@ -142,8 +142,15 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    [self didRotateFromInterfaceOrientation:nil];
+
     // start the camera
     [self.camera start];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self didRotateFromInterfaceOrientation:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -212,19 +219,35 @@
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     
-    self.camera.view.frame = self.view.contentBounds;
+    NSLog(@"View Will Layout Subview");
     
-    self.snapButton.center = self.view.contentCenter;
-    self.snapButton.bottom = self.view.height - 15;
+    self.camera.view.frame = self.view.contentBounds;
     
     self.flashButton.right = self.view.width - 5.0f;
     self.flashButton.top = 5.0f;
 
     self.switchButton.center = self.view.contentCenter;
     self.switchButton.top = 5.0f;
+    
+    [self didRotateFromInterfaceOrientation:nil];
+}
 
-    self.cameraRollButton.left = 8;
-    self.cameraRollButton.bottom = self.view.height - 15;
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
+        NSLog(@"Change orientation to landscape");
+        self.snapButton.center = self.view.contentCenter;
+        self.snapButton.left = self.view.width - self.snapButton.height - 8;
+        
+        self.cameraRollButton.bottom = self.view.height - 15;
+        self.cameraRollButton.left = self.view.width - self.cameraRollButton.height - 8;
+    } else {
+        NSLog(@"Change orientation to portrait");
+        self.snapButton.center = self.view.contentCenter;
+        self.snapButton.bottom = self.view.height - 15;
+        
+        self.cameraRollButton.left = 8;
+        self.cameraRollButton.bottom = self.view.height - 15;
+    }
 }
 
 - (UIImage*)getCameraRollImage:(void(^)(UIImage*))block {
