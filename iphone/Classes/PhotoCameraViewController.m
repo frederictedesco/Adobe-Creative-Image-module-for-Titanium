@@ -94,8 +94,7 @@
     self.snapButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.snapButton.frame = CGRectMake(0, 0, 80.0f, 80.0f);
     self.snapButton.clipsToBounds = YES;
-    NSString* snapImagePath = [ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-hit.png"];
-    UIImage* snapButtonImage = [UIImage imageNamed:snapImagePath];
+    UIImage* snapButtonImage = [UIImage imageWithContentsOfFile:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-hit.png"]];
     [self.snapButton setImage:snapButtonImage forState:UIControlStateNormal];
     [self.snapButton addTarget:self action:@selector(snapButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.snapButton];
@@ -111,7 +110,7 @@
     // button to toggle camera positions
     self.switchButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.switchButton.frame = CGRectMake(0, 0, 32.0f + 20.0f, 32.0f + 20.0f);
-    [self.switchButton setImage:[UIImage imageNamed:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-switch.png"]] forState:UIControlStateNormal];
+    [self.switchButton setImage:[UIImage imageWithContentsOfFile:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-switch.png"]] forState:UIControlStateNormal];
     self.switchButton.imageEdgeInsets = UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f);
     [self.switchButton addTarget:self action:@selector(switchButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.switchButton];
@@ -120,7 +119,7 @@
     self.crossButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.crossButton.frame = CGRectMake(8.0f, 8.0f, 32.0f, 32.0f);
     self.crossButton.clipsToBounds = YES;
-    [self.crossButton setImage:[UIImage imageNamed:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"cross.png"] ] forState:UIControlStateNormal];
+    [self.crossButton setImage:[UIImage imageWithContentsOfFile:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"cross.png"] ] forState:UIControlStateNormal];
     [self.crossButton addTarget:self action:@selector(crossButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.crossButton];
     
@@ -129,7 +128,7 @@
     self.cameraRollButton.layer.masksToBounds = YES;
     self.cameraRollButton.layer.cornerRadius = 2.0f;
     self.cameraRollButton.frame = CGRectMake(0, 0, 50.0f, 50.0f);
-    [self.cameraRollButton setImage:[UIImage imageNamed:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-gallery.png"]] forState:UIControlStateNormal];
+    [self.cameraRollButton setImage:[UIImage imageWithContentsOfFile:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-gallery.png"]] forState:UIControlStateNormal];
     [self.cameraRollButton addTarget:self action:@selector(cameraRollButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.cameraRollButton];
 }
@@ -195,11 +194,11 @@
 
 - (void)changeFlashButtonImage:(CameraFlash)flash {
     if(self.camera.flash == CameraFlashOff) {
-        [self.flashButton setImage:[UIImage imageNamed:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-flash-off.png"]] forState:UIControlStateNormal];
+        [self.flashButton setImage:[UIImage imageWithContentsOfFile:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-flash-off.png"]] forState:UIControlStateNormal];
     } else if (self.camera.flash == CameraFlashOn) {
-        [self.flashButton setImage:[UIImage imageNamed:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-flash-on.png"]] forState:UIControlStateNormal];
+        [self.flashButton setImage:[UIImage imageWithContentsOfFile:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-flash-on.png"]] forState:UIControlStateNormal];
     } else {
-        [self.flashButton setImage:[UIImage imageNamed:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-flash-auto.png"]] forState:UIControlStateNormal];
+        [self.flashButton setImage:[UIImage imageWithContentsOfFile:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-flash-auto.png"]] forState:UIControlStateNormal];
     }
 }
 
