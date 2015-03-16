@@ -43,7 +43,7 @@
 		4957304C1AA5A6C3004AE8DA /* PhotoCameraViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4957304A1AA5A6C3004AE8DA /* PhotoCameraViewController.h */; };
 		4957304D1AA5A6C3004AE8DA /* PhotoCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4957304B1AA5A6C3004AE8DA /* PhotoCameraViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		4993603B1A9FB5FB00DCFB14 /* PhotoPickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 499360391A9FB5FB00DCFB14 /* PhotoPickerController.h */; };
-		4993603C1A9FB5FB00DCFB14 /* PhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4993603A1A9FB5FB00DCFB14 /* PhotoPickerController.m */; };
+		4993603C1A9FB5FB00DCFB14 /* PhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4993603A1A9FB5FB00DCFB14 /* PhotoPickerController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		49FC43341A9E1E2000D4A636 /* AdobeCreativeSDKFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43321A9E1E2000D4A636 /* AdobeCreativeSDKFoundation.framework */; };
 		49FC43351A9E1E2000D4A636 /* AdobeCreativeSDKImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43331A9E1E2000D4A636 /* AdobeCreativeSDKImage.framework */; };
 		49FC43391A9E8FCB00D4A636 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC43361A9E8FCB00D4A636 /* Accelerate.framework */; };

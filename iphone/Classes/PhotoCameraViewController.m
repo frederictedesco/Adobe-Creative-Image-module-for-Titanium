@@ -28,6 +28,7 @@
 @property (strong, nonatomic) UIButton *cameraRollButton;
 @property (strong, nonatomic) AdobePhotoEditorController* editorViewController;
 @property (strong, nonatomic) PhotoPickerController* photoPickerController;
+@property (copy, nonatomic) UIImage* latestPhoto;
 
 @end
 
@@ -93,7 +94,9 @@
     self.snapButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.snapButton.frame = CGRectMake(0, 0, 80.0f, 80.0f);
     self.snapButton.clipsToBounds = YES;
-    [self.snapButton setImage:[UIImage imageNamed:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-hit.png"] ] forState:UIControlStateNormal];
+    NSString* snapImagePath = [ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-hit.png"];
+    UIImage* snapButtonImage = [UIImage imageNamed:snapImagePath];
+    [self.snapButton setImage:snapButtonImage forState:UIControlStateNormal];
     [self.snapButton addTarget:self action:@selector(snapButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.snapButton];
     
@@ -125,16 +128,8 @@
     self.cameraRollButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.cameraRollButton.layer.masksToBounds = YES;
     self.cameraRollButton.layer.cornerRadius = 2.0f;
-    [self getCameraRollImage:^(UIImage *image) {
-        if (image) {
-            UIImage* resizedImage = [image resizedImageToFitInSize:CGSizeMake(50, 50) scaleIfSmaller:YES];
-            self.cameraRollButton.frame = CGRectMake(0, 0, resizedImage.size.height, resizedImage.size.width);
-            [self.cameraRollButton setImage:resizedImage forState:UIControlStateNormal];
-        } else {
-            self.cameraRollButton.frame = CGRectMake(0, 0, 50.0f, 50.0f);
-            [self.cameraRollButton setImage:[UIImage imageNamed:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-gallery.png"]] forState:UIControlStateNormal];
-        }
-    }];
+    self.cameraRollButton.frame = CGRectMake(0, 0, 50.0f, 50.0f);
+    [self.cameraRollButton setImage:[UIImage imageNamed:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-gallery.png"]] forState:UIControlStateNormal];
     [self.cameraRollButton addTarget:self action:@selector(cameraRollButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.cameraRollButton];
 }
@@ -142,8 +137,33 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    // hide status bar
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    
     // start the camera
     [self.camera start];
+    
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    [library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+        // The end of the enumeration is signaled by group == nil.
+        if (group != nil) {
+            [group setAssetsFilter:[ALAssetsFilter allPhotos]];
+        }
+        if (group != nil && group.numberOfAssets > 0) {
+            // Chooses the photo at the last index
+            [group enumerateAssetsAtIndexes:[NSIndexSet indexSetWithIndex:([group numberOfAssets] - 1)] options:0 usingBlock:^(ALAsset *alAsset, NSUInteger index, BOOL *innerStop) {
+                // The end of the enumeration is signaled by asset == nil.
+                if (alAsset) {
+                    self.latestPhoto = [UIImage imageWithCGImage:[alAsset thumbnail]];
+                    UIImage* resizedImage = [self.latestPhoto resizedImageToFitInSize:CGSizeMake(50, 50) scaleIfSmaller:YES];
+                     [self.cameraRollButton setImage:resizedImage forState:UIControlStateNormal];
+                }
+            }];
+        }
+    } failureBlock: ^(NSError *error) {
+        // Typically you should handle an error more gracefully than this.
+        NSLog(@"[ERR9R] No groups, %@",error);
+    }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -151,6 +171,8 @@
     
     // stop the camera
     [self.camera stop];
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
 }
 
 /* camera buttons */
@@ -235,36 +257,6 @@
 - (NSUInteger)supportedInterfaceOrientations
 {
     return (UIInterfaceOrientationMaskPortrait);
-}
-
-- (UIImage*)getCameraRollImage:(void(^)(UIImage*))block {
-    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-    [library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
-        // The end of the enumeration is signaled by group == nil.
-        if (group == nil) {
-            return;
-        }
-        [group setAssetsFilter:[ALAssetsFilter allPhotos]];
-        if ([group numberOfAssets] > 0) {
-            // Chooses the photo at the last index
-            [group enumerateAssetsAtIndexes:[NSIndexSet indexSetWithIndex:([group numberOfAssets] - 1)] options:0 usingBlock:^(ALAsset *alAsset, NSUInteger index, BOOL *innerStop) {
-                // The end of the enumeration is signaled by asset == nil.
-                if (alAsset) {
-                    UIImage *latestPhoto = [UIImage imageWithCGImage:[alAsset thumbnail]];
-                    NSLog(@"[INFO] AlAsset - index %i - %@",index,alAsset);
-                    block(latestPhoto);
-                }
-            }];
-        } else {
-            stop = YES;
-            NSLog(@"[WARN] Number of asset : 0");
-            block(nil);
-        }
-    } failureBlock: ^(NSError *error) {
-        // Typically you should handle an error more gracefully than this.
-        NSLog(@"[ERR9R] No groups, %@",error);
-        block(nil);
-    }];
 }
 
 - (BOOL)prefersStatusBarHidden {

@@ -38,12 +38,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [_photoEditorController release];
-    [super dealloc];
-}
-
 #pragma mark - UIImagePickerViewController Delegate
 
 // For responding to the user tapping Cancel.
@@ -72,8 +66,6 @@ didFinishPickingMediaWithInfo: (NSDictionary *) info {
         imageToSave = originalImage;
     }
     
-    [picker release];
-
     [self.photoEditorController displayEditorForImage:imageToSave];
 }
 

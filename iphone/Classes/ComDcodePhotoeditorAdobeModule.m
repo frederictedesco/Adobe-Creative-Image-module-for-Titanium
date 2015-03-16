@@ -57,17 +57,14 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
     });
     
     [[NSNotificationCenter defaultCenter] addObserverForName:kAVEditorFinished object:nil queue:nil usingBlock:^(NSNotification *note) {
-        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
         [self fireEvent:kAVEditorFinished withObject:[ComDcodePhotoeditorAdobeModule convertResultDic:(UIImage*)note.object]];
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:kAVEditorCancel object:nil queue:nil usingBlock:^(NSNotification *note) {
-        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
         [self fireEvent:kAVEditorCancel withObject:nil];
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:@"camera:cancel" object:nil queue:nil usingBlock:^(NSNotification *note) {
-        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
         [self fireEvent:@"camera:cancel" withObject:nil];
     }];
 }
@@ -203,7 +200,6 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
         [AdobeImageEditorCustomization setToolOrder:tools];
     }
     
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     PhotoCameraViewController* photoCameraVC = [[PhotoCameraViewController alloc] init];
     [[TiApp app] showModalController:photoCameraVC animated:YES];
 }
