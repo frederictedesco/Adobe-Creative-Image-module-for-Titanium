@@ -48,8 +48,6 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
 	// this method is called when the module is first loaded
 	// you *must* call the superclass
 	[super startup];
-
-	NSLog(@"[INFO] %@ loaded",self);
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -185,8 +183,6 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
 {
     ENSURE_UI_THREAD_1_ARG(args)
     ENSURE_SINGLE_ARG(args, NSDictionary);
-
-    NSLog(@"[INFO] newPhotoCamera %@",args);
     
     // Set Supported Orientations
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
@@ -218,8 +214,6 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
     ENSURE_UI_THREAD_1_ARG(params);
     ENSURE_SINGLE_ARG(params, NSDictionary);
     
-    NSLog(@"[INFO] Test Li",self);
-    
     // Set Supported Orientations
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         NSArray * supportedOrientations = @[@(UIInterfaceOrientationPortrait), @(UIInterfaceOrientationPortraitUpsideDown), @(UIInterfaceOrientationLandscapeLeft), @(UIInterfaceOrientationLandscapeRight)];
@@ -237,7 +231,6 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
 // Post edited image by notification.
 -(void)photoEditor:(AFPhotoEditorController *)editor finishedWithImage:(UIImage *)image
 {
-    NSLog(@"avEditorFinished XCODE");
     [[NSNotificationCenter defaultCenter] postNotificationName:kAVEditorFinished object:image];
     
     if([view_parentViewController(editor) respondsToSelector:@selector(dismissViewControllerAnimated:completion:)])
@@ -253,9 +246,6 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
 // This is called when editcontroller cancel.
 -(void)photoEditorCanceled:(AFPhotoEditorController *)editor
 {
-    
-    
-    NSLog(@"avEditorCancel XCODE");
     [[NSNotificationCenter defaultCenter] postNotificationName:kAVEditorCancel object:nil];
     
     if([view_parentViewController(editor) respondsToSelector:@selector(dismissViewControllerAnimated:completion:)])
@@ -295,8 +285,6 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
 {
     ENSURE_SINGLE_ARG(args,NSString);
     
-    NSLog(@"[ASSETSDEMO] loadImageFromModule %@", args);
-    
     // Load the image from the module assets
     NSString *imagePath = [ComDcodePhotoeditorAdobeModule getPathToModuleAsset:args];
     UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
@@ -307,16 +295,12 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
     // The image must be converted to a TiBlob before returning
     TiBlob *result = [[[TiBlob alloc] initWithImage:image] autorelease];
     
-    NSLog(@"[ASSETSDEMO] %@", result);
-    
     return result;
 }
 
 -(TiBlob*)loadImageFromApplication:(id)args
 {
     ENSURE_SINGLE_ARG(args,NSString);
-    
-    NSLog(@"[ASSETSDEMO] loadImageFromApplication %@", args);
     
     // Load the image from the application assets
     NSString *imagePath = [ComDcodePhotoeditorAdobeModule getPathToApplicationAsset:args];
@@ -327,8 +311,6 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
     
     // The image must be converted to a TiBlob before returning
     TiBlob *result = [[[TiBlob alloc] initWithImage:image] autorelease];
-    
-    NSLog(@"[ASSETSDEMO] %@", result);
     
     return result;	
 }

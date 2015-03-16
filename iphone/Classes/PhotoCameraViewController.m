@@ -58,8 +58,6 @@
     
     self.camera.useDeviceOrientation = YES;
     
-    NSLog(@"[INFO] Camera Width/Height : %f %f",screenRect.size.width, screenRect.size.height);
-    
     // attach to a view controller
     [self.camera attachToViewController:self withFrame:CGRectMake(0, 0, screenRect.size.width, screenRect.size.width)];
     
@@ -70,9 +68,6 @@
     // take the required actions on a device change
     __weak PhotoCameraViewController* weakSelf = self;
     [self.camera setOnDeviceChange:^(LLSimpleCamera *camera, AVCaptureDevice * device) {
-        
-        NSLog(@"Device changed.");
-        
         // device changed, check if flash is available
         if([camera isFlashAvailable]) {
             weakSelf.flashButton.hidden = NO;
@@ -85,7 +80,7 @@
     }];
     
     [self.camera setOnError:^(LLSimpleCamera *camera, NSError *error) {
-        NSLog(@"Camera error: %@", error);
+        NSLog(@"[ERROR] Camera error: %@", error);
     }];
     
     // ----- camera buttons -------- //
@@ -94,8 +89,7 @@
     self.snapButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.snapButton.frame = CGRectMake(0, 0, 80.0f, 80.0f);
     self.snapButton.clipsToBounds = YES;
-    UIImage* snapButtonImage = [UIImage imageWithContentsOfFile:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-hit.png"]];
-    [self.snapButton setImage:snapButtonImage forState:UIControlStateNormal];
+    [self.snapButton setImage:[UIImage imageWithContentsOfFile:[ComDcodePhotoeditorAdobeModule getPathToModuleAsset:@"camera-hit.png"]] forState:UIControlStateNormal];
     [self.snapButton addTarget:self action:@selector(snapButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.snapButton];
     
@@ -161,7 +155,7 @@
         }
     } failureBlock: ^(NSError *error) {
         // Typically you should handle an error more gracefully than this.
-        NSLog(@"[ERR9R] No groups, %@",error);
+        NSLog(@"[ERROR] No groups, %@",error);
     }];
 }
 
@@ -219,12 +213,10 @@
 }
 
 - (void)cameraRollButtonPressed:(UIButton *)button {
-    NSLog(@"[INFO] Taking a photo...");
     [[TiApp app] showModalController:self.photoPickerController animated:YES];
 }
 
 - (void)crossButtonPressed:(UIButton *)button {
-    NSLog(@"[INFO] Close camera");
     [[TiApp app] hideModalController:self animated:YES];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"camera:cancel" object:nil];
 }

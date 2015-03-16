@@ -42,14 +42,12 @@
 
 // For responding to the user tapping Cancel.
 - (void)imagePickerControllerDidCancel: (UIImagePickerController *) picker {
-    NSLog(@"[INFO] imagePickerControllerDidCancel");
     [self dismissViewControllerAnimated:self completion:nil];
 }
 
 // For responding to the user accepting a newly-captured picture or movie
 - (void)imagePickerController: (UIImagePickerController *) picker
 didFinishPickingMediaWithInfo: (NSDictionary *) info {
-    NSLog(@"[INFO] imagePickerController didFinishPickingMediaWithInfo : %@", info);
     NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
     UIImage *originalImage, *editedImage, *imageToSave;
     
