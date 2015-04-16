@@ -96,8 +96,6 @@
     // button to toggle flash
     self.flashButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.flashButton.frame = CGRectMake(0, 0, 40.0f + 20.0f, 28.0f + 20.0f);
-    [self.camera updateFlashMode:CameraFlashOff];
-    [self changeFlashButtonImage:self.camera.flash];
     self.flashButton.imageEdgeInsets = UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f);
     [self.flashButton addTarget:self action:@selector(flashButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.flashButton];
@@ -137,6 +135,9 @@
     // start the camera
     [self.camera start];
     
+    [self.camera updateFlashMode:CameraFlashOff];
+    [self changeFlashButtonImage:self.camera.flash];
+
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
     [library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
         // The end of the enumeration is signaled by group == nil.

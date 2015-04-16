@@ -63,7 +63,7 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
         [self fireEvent:kAVEditorCancel withObject:nil];
     }];
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"camera:cancel" object:nil queue:nil usingBlock:^(NSNotification *note) {
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"cameraCancel" object:nil queue:nil usingBlock:^(NSNotification *note) {
         [self fireEvent:kCameraCancel withObject:nil];
     }];
 }
