@@ -49,9 +49,6 @@
 
 - (void)photoEditorCanceled:(AdobeUXImageEditorViewController *)editor
 {
-    // Handle cancellation here
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"avEditorCancel" object:nil];
-    
     if([editor respondsToSelector:@selector(dismissViewControllerAnimated:completion:)]) {
         [[TiApp app] hideModalController:editor animated:NO];
     } else {

@@ -21,6 +21,7 @@ static NSString * const kAFAviaryAPIKey = @"3d8601432f3e4c65821c610c134e1457";
 static NSString * const kAFAviarySecret = @"b9a7831e-340c-471b-82f7-2dbe08667c67";
 static NSString * const kAVEditorFinished = @"avEditorFinished";
 static NSString * const kAVEditorCancel = @"avEditorCancel";
+static NSString * const kCameraCancel = @"cameraCancel";
 
 static NSString * const kModuleGUID = @"5191636b-cc39-4b9d-b0ec-771f9f70b2cc";
 static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
@@ -63,7 +64,7 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:@"camera:cancel" object:nil queue:nil usingBlock:^(NSNotification *note) {
-        [self fireEvent:@"camera:cancel" withObject:nil];
+        [self fireEvent:kCameraCancel withObject:nil];
     }];
 }
 

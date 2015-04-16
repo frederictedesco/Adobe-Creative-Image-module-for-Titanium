@@ -96,6 +96,7 @@
     // button to toggle flash
     self.flashButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.flashButton.frame = CGRectMake(0, 0, 40.0f + 20.0f, 28.0f + 20.0f);
+    [self.camera updateFlashMode:CameraFlashOff];
     [self changeFlashButtonImage:self.camera.flash];
     self.flashButton.imageEdgeInsets = UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f);
     [self.flashButton addTarget:self action:@selector(flashButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -218,7 +219,7 @@
 
 - (void)crossButtonPressed:(UIButton *)button {
     [[TiApp app] hideModalController:self animated:YES];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"camera:cancel" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"cameraCancel" object:nil];
 }
 
 /* other lifecycle methods */
