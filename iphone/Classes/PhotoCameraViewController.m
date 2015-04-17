@@ -56,7 +56,7 @@
     // create camera vc
     self.camera = [[LLSimpleCamera alloc] initWithQuality:CameraQualityPhoto andPosition:CameraPositionBack];
     
-    self.camera.useDeviceOrientation = NO;
+    self.camera.useDeviceOrientation = YES;
     
     // attach to a view controller
     [self.camera attachToViewController:self withFrame:CGRectMake(0, 0, screenRect.size.width, screenRect.size.width)];
@@ -203,8 +203,8 @@
     // capture
     [self.camera capture:^(LLSimpleCamera *camera, UIImage *image, NSDictionary *metadata, NSError *error) {
         if(!error) {
-            UIImage* normalizedImage = [UIImage imageWithCGImage:image.CGImage scale:1.0 orientation:UIImageOrientationUp];
-                
+            UIImage* normalizedImage = [self fixrotation:image];
+
             // we should stop the camera, since we don't need it anymore. We will open a new vc.
             // this very important, otherwise you may experience memory crashes
             [camera stop];
