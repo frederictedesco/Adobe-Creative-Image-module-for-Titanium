@@ -9,9 +9,6 @@
 #import <AdobeCreativeSDKImage/AdobeCreativeSDKImage.h>
 
 @interface ComDcodePhotoeditorAdobeModule : TiModule <AdobeUXImageEditorViewControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
-{
-    AdobeUXImageEditorViewController *editorController;
-}
 
 - (void)newPhotoCamera:(id)args;
 

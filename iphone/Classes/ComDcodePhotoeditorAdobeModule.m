@@ -26,6 +26,13 @@ static NSString * const kCameraCancel = @"cameraCancel";
 static NSString * const kModuleGUID = @"5191636b-cc39-4b9d-b0ec-771f9f70b2cc";
 static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
 
+@interface ComDcodePhotoeditorAdobeModule ()
+
+@property (nonatomic, retain) AdobeUXImageEditorViewController *editorController;
+@property (nonatomic, retain) PhotoCameraViewController* photoCameraVC;
+
+@end
+
 @implementation ComDcodePhotoeditorAdobeModule
 
 #pragma mark Internal
@@ -82,6 +89,8 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
 
 -(void)dealloc
 {
+    RELEASE_TO_NIL(_editorController)
+    RELEASE_TO_NIL(_photoCameraVC)
 	// release any resources that have been retained by the module
 	[super dealloc];
 }
@@ -137,11 +146,12 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
 
 -(void)newEditorController:(UIImage *)source
 {
+    if (_editorController == nil) {
+        self.editorController = [[AFPhotoEditorController alloc] initWithImage:source];
+        [_editorController setDelegate:self];
+    }
     
-    editorController = [[AFPhotoEditorController alloc] initWithImage:source];
-    [editorController setDelegate:self];
-    
-    [[TiApp app] showModalController: editorController animated: NO];
+    [[TiApp app] showModalController:_editorController animated: NO];
 }
 
 -(NSMutableArray *)convertToRealToolsKey:(NSArray *)toolsKey
@@ -168,14 +178,15 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
 {
     
     NSArray *tools = [self convertToRealToolsKey:toolKey];
-    editorController = [[AFPhotoEditorController alloc]
-                        initWithImage:source
-                        ];
     [AdobeImageEditorCustomization setToolOrder:tools];
     
-    [editorController setDelegate:self];
+    if (_editorController == nil) {
+        self.editorController = [[AFPhotoEditorController alloc] initWithImage:source ];
+    }
     
-    [[TiApp app] showModalController: editorController animated: NO];
+    [_editorController setDelegate:self];
+    
+    [[TiApp app] showModalController: _editorController animated: NO];
 }
 
 #pragma Public APIs
@@ -197,8 +208,11 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
         [AdobeImageEditorCustomization setToolOrder:tools];
     }
     
-    PhotoCameraViewController* photoCameraVC = [[PhotoCameraViewController alloc] init];
-    [[TiApp app] showModalController:photoCameraVC animated:YES];
+    if (_photoCameraVC == nil) {
+        self.photoCameraVC = [[PhotoCameraViewController alloc] init];
+    }
+    
+    [[TiApp app] showModalController:_photoCameraVC animated:YES];
 }
 
 -(void)newPhotoCamera:(id)args withTools:(NSArray *)toolKey
@@ -207,7 +221,7 @@ static NSString * const kModuleId = @"com.dcode.photoeditor.adobe";
     NSArray *tools = [self convertToRealToolsKey:toolKey];
     [AdobeImageEditorCustomization setToolOrder:tools];
     
-    [[TiApp app] showModalController:editorController animated: NO];
+    [[TiApp app] showModalController:_editorController animated: NO];
 }
 
 -(void)newImageEditor:(id)params
