@@ -8,11 +8,15 @@
 
 #import "AdobePhotoEditorController.h"
 #import "ComDcodePhotoeditorAdobeModule.h"
+
 #import <TiApp.h>
+
+#import "UIImage+Resize.h"
 
 @interface AdobePhotoEditorController ()
 
 @property (nonatomic, retain) AdobeUXImageEditorViewController *editorController;
+@property (nonatomic, retain) UIImage* imageToEdit;
 
 @end
 
@@ -29,6 +33,7 @@
 
 - (void)displayEditorForImage:(UIImage *)imageToEdit
 {
+    self.imageToEdit = imageToEdit;
     self.editorController = [[AdobeUXImageEditorViewController alloc] initWithImage:imageToEdit];
     _editorController.delegate = self;
     [[TiApp app] showModalController:_editorController animated:YES];
@@ -42,7 +47,19 @@
 - (void)photoEditor:(AdobeUXImageEditorViewController *)editor finishedWithImage:(UIImage *)image
 {
     // Handle the result image here
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"avEditorFinished" object:image];
+    id<AdobeImageEditorRender> render = [editor enqueueHighResolutionRenderWithImage:self.imageToEdit maximumSize:CGSizeMake(2048,2048) completion:^(UIImage *result, NSError *error) {
+        if (error == nil) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"avEditorFinished" object:result];
+        } else {
+            NSLog(@"Error %@",error);
+            UIImage* resizedImage = [self.imageToEdit resizedImageToFitInSize:CGSizeMake(2048, 2048) scaleIfSmaller:NO];
+            if (resizedImage == nil) {
+                resizedImage = self.imageToEdit;
+            }
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"avEditorFinished" object:resizedImage];
+        }
+    }];
     
     [self dismissModalStack:editor];
 }
